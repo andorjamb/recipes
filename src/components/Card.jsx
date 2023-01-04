@@ -7,7 +7,10 @@ const Card = (props) => {
         <div className={classes.card}>
             <img src={props.recipeImage} alt={props.recipeName} />
             <div><h4>{props.recipeName}</h4>
-            <Link to='/recipes/:recipesingle' ><button>See Recipe</button></Link></div>
+            <Link to='/recipes/:recipesingle'>
+                <button className={classes.button}>See Recipe</button>
+            </Link>
+            </div>
             
         </div>
     );

@@ -1,23 +1,44 @@
 .card {
-    height: 340px;
+    height: 320px;
     width: 240px;
     border-radius: 15px;
     border: 2px solid darkgray;
     display: flex;
     flex-direction: column;
-    margin: 1rem;
+    margin: 1.2rem;
+    padding: 0.2rem;
+    align-items: center;
 }
 
 .card img {
-    height: 100%;
-    width: auto;
-
+    flex: 60%;
+    width: 230px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
-.button {
+.card>div {
+    flex: 20%;
+    position: relative;
+}
+
+
+.card h4 {
+    line-height: 1rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+
+
+.card a button {
     height: 40px;
     width: 160px;
     border-radius: 25px;
+    background-color: red;
+    color: white;
+  flex: 20%;
 }
 
 @media screen and (max-width: 600px) {

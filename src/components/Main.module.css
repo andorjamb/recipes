@@ -1,6 +1,6 @@
 .main {
-     max-height: 80vh;
-     width: 100%;
+    min-height: 50vh;
+    width: 100%;
     background-color: var(--main-bg-color);
 }
    

@@ -1,3 +1,4 @@
+
 {
   "recipes": [
     {
@@ -307,7 +308,6 @@
       }
     },
     {
-      "recipe": {
         "name": "American Pancakes",
         "author": "John Doe",
         "country": "United States",
@@ -340,8 +340,7 @@
           "carbohydrates": 48,
           "protein": 10
         }
-      }
-    },
+      },
     {
       "name": "Peanut Butter and Jelly Sandwich",
       "author": "Jane Doe",

@@ -32,6 +32,11 @@ height: 70px;
 .nav a {
     text-decoration: none;
     font-size: 1rem;
+    font-weight:500;
     color: gray;
 
+}
+
+.nav a:hover {
+    color: var(--black);
 }

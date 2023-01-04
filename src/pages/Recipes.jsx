@@ -6,16 +6,22 @@ import classes from './Recipes.module.css';
 const recipeData = recipes;
 const Recipes = () => {
     
-const [recipes] = useState(recipeData.recipes);
-    function search (){
+const [recipes, setRecipes] = useState(recipeData.recipes);
+const [searchValue, setSearchValue] = useState('');
+
+function searchFilter(){
+
 
     }
     return (
+        <>
+        <div className={classes.search}><label htmlFor='searchValue'>Search recipes:</label><input type="text" name='searchValue' id='searchValue' /></div>
         <div className={classes.recipes}>
-            <div>
+           
             {recipes.map((recipe)=><Card recipeName={recipe.name} recipeImage={recipe.image}/>)}
-            </div>
+          
         </div>
+        </>
     );
 };
 
