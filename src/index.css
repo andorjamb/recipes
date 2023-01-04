@@ -1,5 +1,7 @@
 :root {
-  --main-background-color: rgb(245, 245, 245);
+  --main-background-color: rgb(245,245,245);
+  --header-background-color: beige;
+  --footer-background-color: brown;
 }
 
 * {

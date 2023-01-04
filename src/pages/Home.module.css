@@ -1,5 +1,93 @@
 .home {
     background-color: blue;
     height: 100%;
+    position: relative;
 
+}
+
+.title {
+    position: absolute;
+   bottom: 100px;
+   left: 40px;
+  
+}
+
+.h1 {
+    color: black;
+    opacity: 0.1;
+    font-size: 10rem;  
+    z-index:1;
+    letter-spacing: 1rem;;
+    animation-duration: 16s;
+    animation-name: color-me-black;
+    animation-iteration-count: 1;
+}
+
+
+@keyframes color-me-black {
+    0% {  
+        color: black;
+        opacity: 0.1;
+    }
+
+    25% {  color: white;
+        opacity: 1;    
+    }
+
+    50% {
+        color: yellow;
+        opacity: 0.8;
+        text-shadow: 2px 2px 5px gray;
+    }
+
+    75% {
+        color: white;
+        opacity: 1;
+    }
+
+    99% { color: black;
+        opacity: 0.1
+    }
+}
+
+.video {
+    width: 100vw;
+    height: auto;
+    z-index: -1;
+}
+
+.menuCards {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    top: 80px;
+    width: 100vw;
+    z-index: 0;
+    padding: 0 2rem;
+}
+
+.glassCard {
+    flex: 1;
+    border-radius: 30px;
+    height: 230px;
+    margin: 1rem;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    border: solid 2px darkgray;
+}
+
+.glassCard h3 {
+color: rgb(29, 32, 46);
+font-weight: 700;
+text-align: center;
+margin: 1rem;
+
+}
+
+.glassCard a {
+    text-decoration: none;
+}
+
+.glassCard a:hover {
+    text-decoration: none;
 }

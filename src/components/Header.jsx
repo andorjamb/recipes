@@ -1,10 +1,12 @@
 import React from 'react';
+import Navbar from './Navbar';
+import cooking from '../assets/video/Cooking.mp4';
 
 const Header = () => {
     return (
-        <div>
-            
-        </div>
+        <header>
+            <Navbar />
+        </header>
     );
 };
 
