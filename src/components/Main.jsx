@@ -5,7 +5,7 @@ import classes from './Main.module.css';
 const Main = () => {
 
 
-    const title = ["T", "a","s","t","e","I","T"]
+    
     return (
         <div className={classes.main}>
             <Outlet />

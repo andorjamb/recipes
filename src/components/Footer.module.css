@@ -2,5 +2,11 @@
     height: 160px;
     width: 100vw;
     display: flex;
-    background-color: var(--footer-background-color);
+/*     background-color: var(--footer-background-color-1); */
+    background: linear-gradient(to top right, var(--footer-bg-color-1), var(--footer-bg-color-2));
+    text-align: center;
+    justify-content: center;
+    padding-top: 2rem;
+    color: white;
+
 }

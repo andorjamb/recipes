@@ -1,0 +1,29 @@
+.card {
+    height: 340px;
+    width: 240px;
+    border-radius: 15px;
+    border: 2px solid darkgray;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.card img {
+    height: 100%;
+    width: auto;
+
+}
+
+.button {
+    height: 40px;
+    width: 160px;
+    border-radius: 25px;
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        height: 80vh;
+        width: 85vw;
+    }
+    
+}

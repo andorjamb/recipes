@@ -1,9 +1,11 @@
 :root {
   --main-background-color: rgb(245,245,245);
   --header-background-color: beige;
-  --footer-background-color: brown;
+  --footer-bg-color-1: rgb(87, 31, 6);
+  --footer-bg-color-2: rgb(65, 21, 1);
+  --black:  rgb(29, 32, 46);
 }
-
+/**/
 * {
   margin: 0;
   padding: 0;

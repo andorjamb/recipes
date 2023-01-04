@@ -1,0 +1,21 @@
+.layout {
+    max-width: var(--app-max-width);
+    display: grid;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer"
+
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: footer;
+}
