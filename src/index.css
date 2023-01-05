@@ -1,6 +1,7 @@
 :root {
-  --main-background-color: rgb(245,245,245);
-  --header-background-color: beige;
+  --app-max-width: 1000px;
+  --main-bg-color: rgb(245,245,245);
+  --header-bg-color: beige;
   --footer-bg-color-1: rgb(87, 31, 6);
   --footer-bg-color-2: rgb(65, 21, 1);
   --black:  rgb(29, 32, 46);

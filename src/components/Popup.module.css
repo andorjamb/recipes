@@ -1,0 +1,10 @@
+.popup {
+    width: 60vw;
+}
+
+.discard {
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+    text-align: center;
+}

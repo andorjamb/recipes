@@ -1,6 +1,6 @@
 .footer {
     height: 160px;
-    width: 100vw;
+    width: 100%;
     display: flex;
 /*     background-color: var(--footer-background-color-1); */
     background: linear-gradient(to top right, var(--footer-bg-color-1), var(--footer-bg-color-2));
