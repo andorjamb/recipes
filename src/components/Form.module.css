@@ -1,24 +1,75 @@
-.form {
-    width: 60vw;
-    border: solid 1px var(--black);
+.formDiv {
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+    box-shadow: 2px 3px 5px var(--black), 2px 3px 9px darkgray;
     border-radius: 10px;
+    padding: 1rem 0;
+    
 }
 
-.form input {
-    width: 300px;
-    height: 30px;
+.form {
+    text-align: left;
+}
+
+.form label#recipeImageLabel {
+    font-weight: bold;
+    border: 2px solid black;
     border-radius: 10px;
-    border: solid 1px var(--black);
+    display: block;
+}
+
+
+.form label {
+    width: 180px;
+    display: inline-block;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
     margin: 0.5rem 1rem;
 }
 
-.form label {
-    width: 250px;
+.form input, select, textarea {
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px darkgray;
+    border: none;
+    margin: 0.5rem 1rem;
+    padding: 0.5rem;
+    text-align: top;
+    font-family: inherit;
+
+    float: right;
 }
+ .form input[type=file] {
+   display: none; 
+    border-radius: 10px;
+ }
+
+ .form textarea {
+    height: 90px;
+    resize: vertical;
+ }
+
+ .form button {
+    display: block;
+ }
+
+input.ingredient, label.ingredient {
+    display: inline;
+    width: 100px;
+    margin: 0.5rem 0.3rem;
+}
+
 
 
 @media screen and (max-width: 600px) {
     .form {
         width: 100vw;
+    }
+
+    .label{
+        display: block;
     }
 }

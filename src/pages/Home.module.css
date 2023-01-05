@@ -55,7 +55,7 @@ position: absolute;
 
 
 
-.menuCards {
+.menu {
     position: absolute;
     display: flex;
     justify-content: space-around;
@@ -71,7 +71,9 @@ position: absolute;
     margin: 1rem;
     z-index: 1;
     backdrop-filter: blur(10px);
-    border: solid 2px darkgray;
+    box-shadow: 2px 3px 5px var(--black), 2px 3px 9px darkgray;
+    padding: 1rem;
+    line-height: 1.3rem;
 }
 
 .glassCard h3 {
@@ -79,6 +81,7 @@ color: var(--black);
 font-weight: 700;
 text-align: center;
 margin: 1rem;
+
 
 }
 

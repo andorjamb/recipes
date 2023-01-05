@@ -14,7 +14,7 @@ const Home = () => {
         <div className={classes.home}>
             <video autoPlay loop className={classes.video}><source src={cooking} type="video/mp4"/></video>
 <div className={classes.title}><h1 className={classes.h1}>TasteIT</h1></div>
-<div className={classes.menuCards}>
+<div className={classes.menu}>
 <div className={classes.glassCard}>
     <Link to="/recipes"><h3>Browse Recipes</h3></Link>
 <p>Search for a recipe, or for recipes by country</p></div>

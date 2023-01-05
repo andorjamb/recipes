@@ -1,32 +1,67 @@
-import React from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import classes from './Form.module.css';
 
 
-const Form = ({countries, submitHandler, newIngredient, newInstruction}) => {  
+const Form = ({countries, submitHandler, resetHandler, newIngredient, newInstruction}) => {  
+
+
+    const [ingredientRows, setIngredientRows] = useState();
+    const ingredRow = useRef();
+
+    useEffect(()=>{
+        console.log(countries);
+    }, [])
+
+/*     const newIngredient =()=>{
+setIngredientRows()
+    const row = `<input type="text" name="ingredient"/>
+        <label>Quantity</label><input type="text" name="quantity"/>
+        <label>Unit</label><input type="text" name="unit"/>`
+
+    }
+ 
+    const newInstruction =()=>{
+
+    }*/
+
     return (
+        <div className={classes.formDiv}>
         <form className={classes.form}>
             <label htmlFor="recipeName">Recipe Name</label>
-            <input type="text" name="recipeName " id="recipeName" />
+            <input type="text" name="recipeName" id="recipeName" />
             <label htmlFor="author">Author</label>
             <input type="text" name="author" id="author" />
             <label htmlFor="country">Country &#40;Select from list&#41;</label>
             <select>  <option value="choice" disabled>Select a country</option>
            
-           {/*  {countries.map((country) => 
-                <option key={country.name.common} name={country.name.common} value={country.name.common}>{country.name.common}</option>)
-            } */}
+      {/*      {countries.map((country) => {
+            return <option key={country.name.common} name={country.name.common} value={country.name.common}>{country.name.common}</option>
+            })} */}
+
             </select>
-            <label htmlFor="description">Description</label><input type="textarea" maxLength={200} name="description"/>
-            <label htmlFor="recipeImage">Upload image</label><input type="file" accept="image/*" name="image"/>
-            <label>Ingredients</label><input />
-            <label>Quantity</label>
-            <label>Unit</label>
-            <button onClick={newIngredient}>Add another ingredient</button>
-            <label>Preparation time</label><input type="text" placeholder="time in minutes"/>
-            <label>Instructions</label><input type="textarea" />
+            <div><label htmlFor="description">Description</label><textarea maxLength={200} name="description" id="description"/></div>
+           <div><label htmlFor="recipeImage"><button id="recipeImageLabel">
+            <input type="file" accept="image/*" name="image" id="recipeImage"/>Upload image
+            </button></label></div>
+            
+            <div><label htmlFor="ingredient" className={classes.ingredient}>Ingredient</label>
+            <input type="text" name="ingredient" id="ingredient" className={classes.ingredient} /></div>
+            
+<div><label className={classes.ingredient}>Quantity</label>
+            <input type="text" name="quantity" id="quantity" className={classes.ingredient}/>
+            <label className={classes.ingredient}>Unit</label><input type="text" name="unit" id="unit" className={classes.ingredient}/>
+            </div>
+            
+            <button onClick={newIngredient}>Add more</button>
+            <div> <label htmlFor="preparation_time">Preparation time</label>
+            <input type="text" placeholder="time in minutes" name="preparation_time" id="preparation_time"/></div>
+           
+           <div>    <label>Instructions</label><textarea name="instructions" maxLength={200}/></div>
+        
             <button onClick={newInstruction}>Add another step</button>
- <button type="submit" onClick={submitHandler}>Submit Recipe</button>
-        </form>
+ <div><button type="submit" onClick={submitHandler}>Submit Recipe</button>
+ <button type="reset" onClick={resetHandler}>Discard changes</button></div>
+        </form></div>
        
     );
 };

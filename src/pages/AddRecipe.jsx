@@ -6,9 +6,9 @@ import Popup from '../components/Popup';
 import DiscardPopup from '../components/DiscardPopup';
 import classes from './AddRecipe.module.css';
 
-const AddRecipe = () => {
+const AddRecipe = ({countries}) => {
 
-    const [countries, setCountries]  =useState([]);
+    //const [countries, setCountries]  =useState([]);
     const [popup, setPopup] = useState(false);
     const [discardPopup, setDiscardPopup] = useState([false]);
     const [newRecipe, setNewRecipe ] = useState({    
@@ -33,28 +33,56 @@ const AddRecipe = () => {
     saveNewRecipe();
   }
 
-    const saveNewRecipe= () => {
-        axios.post('http://localhost:3000/src/db.json', {
-          ...newRecipe
+  const saveNewRecipe= async() => {
+
+    const formData = new FormData();
+    formData.append(newRecipe);
+
+  await axios({
+      method: "post",
+      url:'http://localhost:3000/db.json',
+      data: formData,
+      headers:{ "Content-Type": "multipart/form-data" },
+    })
+    .then((res)=>{console.log(res);})
+    .catch((error) => console.log(error));
+  }
+
+     /*    axios.post('http://localhost:3000/db.json', formData, {
+          headers: {
+        “Content-type”: “multipart/form-data”,
+          },
         })
+        .then((res)=>{console.log(res);})
           .catch((error) => console.log(error));
-        setPopup(false);
+ */
+    
+         
+  const closeHandler =() =>{
+          setPopup(false);
         window.location.reload(true);
-    
       }
-    
-      const discardCheck= () => {
+
+  const discardCheck= () => {
+    console.log('discard');
+    setDiscardPopup(true);
+      }
+
+  const discardChanges = ()=>{
         setDiscardPopup(false);
-        window.location.reload(true)
-
+         window.location.reload(true)
       }
+  
+      const addRow=()=>{}
 
     
-    useEffect(()=>{
+ /*    useEffect(()=>{
 axios.get(' https://restcountries.com/v2/all?fields=name,flags')
-.then(res=> {setCountries(res)})
-    },[])
+.then(res=> {setCountries(res.data)});
 
+console.log(countries);
+    },[])
+ */
 
 /*    
 [ {-name.common
@@ -62,13 +90,13 @@ axios.get(' https://restcountries.com/v2/all?fields=name,flags')
 flags.svg
  - }] */
 
-
-
     return (
        
         <div className={classes.addRecipe}>
-            <Form countries={countries} submitHandler={submitForm}/>
- {popup && <Popup /> } 
+          <h2>Add a New Recipe</h2>
+            <Form countries={countries} submitHandler={submitForm} resetHandler={discardCheck} newIngredient={addRow} newInstruction={addRow}/>
+ {popup && <Popup closeHandler={closeHandler}/> } 
+ {discardPopup && <DiscardPopup yesHandler={discardChanges} noHandler={setDiscardPopup(false)}/>}
         </div>
     );
 };
