@@ -36,8 +36,11 @@
     height: 40px;
     width: 160px;
     border-radius: 25px;
-    background-color: red;
-    color: white;
+    background-color: rgb(247, 172, 111);
+    color: var(--black);
+    border: 2px solid rgb(78, 30, 21);
+    font-weight: 600;
+    font-size: 1.1rem;
   flex: 20%;
 }
 

@@ -18,3 +18,5 @@ full list of all countries endpoint: https://restcountries.com/v3.1/all
 -flags.png
 flags.svg
  - }]
+
+ https://restcountries.com/v2/all?fields=name,flags

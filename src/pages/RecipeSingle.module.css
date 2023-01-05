@@ -1,0 +1,23 @@
+.recipeSingle {
+    max-width: var(--app-max-width);
+    min-width: 60vw;
+    min-height: 80vh;
+}
+
+.loading {
+    color: black;
+    font-size: 3rem;
+}
+
+.recipeSingle img {
+    width: 60vw;
+    height: auto;
+}
+
+
+@media print {
+    .recipeSingle img {
+        display: none;
+    }
+    
+}

@@ -3,14 +3,25 @@ import axios from 'axios';
 
 import Form from '../components/Form';
 import Popup from '../components/Popup';
+import DiscardPopup from '../components/DiscardPopup';
 import classes from './AddRecipe.module.css';
 
 const AddRecipe = () => {
 
     const [countries, setCountries]  =useState([]);
     const [popup, setPopup] = useState(false);
-    const [newRecipe, setNewRecipe ] = useState({
-        "":,
+    const [discardPopup, setDiscardPopup] = useState([false]);
+    const [newRecipe, setNewRecipe ] = useState({    
+    "name": "",
+      "author": "",
+      "country": "",
+      "description": "",
+      "image": "",
+      "ingredients": [],/* array of objects */
+      "preparation_time": 0,
+      "cooking_time": 0,
+      "servings": 0,
+      "directions": [], /* array of strings */
     }
 
     );
@@ -32,8 +43,8 @@ const AddRecipe = () => {
     
       }
     
-      const discardRecipe= () => {
-        setDiscardPopup(true);
+      const discardCheck= () => {
+        setDiscardPopup(false);
         window.location.reload(true)
 
       }

@@ -1,12 +1,9 @@
 .footer {
-    height: 160px;
-    width: 100%;
-    display: flex;
-/*     background-color: var(--footer-background-color-1); */
+    height: 10rem;
+    max-width: var(--app-max-width);
     background: linear-gradient(to top right, var(--footer-bg-color-1), var(--footer-bg-color-2));
-    text-align: center;
-    justify-content: center;
-    padding-top: 2rem;
+    padding-top: 5rem;
     color: white;
+    
 
 }

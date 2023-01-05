@@ -2,11 +2,9 @@
     background-color: --var(--main-bg-color);
     height: 100%;
     position: relative;
-
 }
 
 .video {
-
     z-index: -1;
 }
 
@@ -62,7 +60,6 @@ position: absolute;
     display: flex;
     justify-content: space-around;
     top: 80px;
-    width: 100vw;
     z-index: 0;
     padding: 0 2rem;
 }

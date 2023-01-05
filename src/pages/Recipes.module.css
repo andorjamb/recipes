@@ -1,5 +1,5 @@
 .recipes {
-    width: 100%;
+   
     background-color: var(--main-bg-color);
     padding: 1rem;
     display: grid;
@@ -11,7 +11,13 @@
 .search {
     height: 80px;
     width: 100%;
+    
 
+
+}
+
+.search label {
+    padding: 1rem;
 }
 
 .search input {
@@ -19,4 +25,6 @@
     width: 400px;
     border-radius: 20px;
     border: 1px solid darkgray;
+    padding: 0.5rem;
+    font-size: 1.1rem;
 }
