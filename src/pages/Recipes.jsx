@@ -2,7 +2,6 @@ import React, {useState, setState, useEffect} from 'react';
 import Card from '../components/Card';
 import recipes from '../recipes.json';
 import classes from './Recipes.module.css';
-//import axios from 'axios';
 
 const recipeData = recipes;
 
@@ -10,28 +9,25 @@ const Recipes = ({countries}) => {
     
 const [recipes] = useState(recipeData.recipes);
 const [searchValue, setSearchValue] = useState('');
-/* const [countries, setCountries] = useState([]); */
+const countriesList = countries;
 
 function searchFilter(e){
     setSearchValue(e.target.value.toLowerCase());
   }
-/* 
-function flagFilter(country){
-    const thisCountry = countries.filter(country => country.name.toLowerCase() === country.toLowerCase());
-    console.log(thisCountry);
-    return thisCountry[0].flags.svg;
-  }
- */
+
+/* useEffect(()=>{
+    console.log(countriesList[0].flags);
+    console.log(countriesList);
+},[]) */
+
+/* function flagFilter(recipe){
+    countriesList.filter(country => country.name.toLowerCase() === recipe.country.toLowerCase());
+    console.log(thisCountry[0]);
+    //return thisCountry[0].flags.svg;
+  } */
+
 
 const recipesFilter = recipes.filter(recipe => recipe.name.toLowerCase().includes(searchValue) || recipe.country.toLowerCase().includes(searchValue));
-
-/* 
-useEffect(()=>{
-    axios.get(' https://restcountries.com/v2/all?fields=name,flags')
-    .then(res=> {setCountries(res.data)});
-    
-    console.log(countries);
-        },[]) */
   
     return (
         <>
@@ -42,7 +38,8 @@ useEffect(()=>{
             <Card 
             recipeName={recipe.name} 
             recipeImage={recipe.image} 
-            flag={recipe.country}/>)}
+            recipeCountry={recipe.country}
+            countries={countriesList}/>)}
           
         </div>
         </>

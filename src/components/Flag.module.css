@@ -1,0 +1,16 @@
+
+.flag {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    background-color: gray;
+}
+
+.flag img {
+    height: 100%;
+    object-fit: cover;
+
+}

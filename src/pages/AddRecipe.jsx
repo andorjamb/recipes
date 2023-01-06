@@ -8,9 +8,8 @@ import classes from './AddRecipe.module.css';
 
 const AddRecipe = ({countries}) => {
 
-    //const [countries, setCountries]  =useState([]);
     const [popup, setPopup] = useState(false);
-    const [discardPopup, setDiscardPopup] = useState([false]);
+    const [discardPopup, setDiscardPopup] = useState(false);
     const [newRecipe, setNewRecipe ] = useState({    
     "name": "",
       "author": "",
@@ -35,8 +34,8 @@ const AddRecipe = ({countries}) => {
 
   const saveNewRecipe= async() => {
 
-    const formData = new FormData();
-    formData.append(newRecipe);
+   let formData = new FormData();
+    formData = newRecipe;
 
   await axios({
       method: "post",
@@ -48,18 +47,10 @@ const AddRecipe = ({countries}) => {
     .catch((error) => console.log(error));
   }
 
-     /*    axios.post('http://localhost:3000/db.json', formData, {
-          headers: {
-        “Content-type”: “multipart/form-data”,
-          },
-        })
-        .then((res)=>{console.log(res);})
-          .catch((error) => console.log(error));
- */
-    
          
   const closeHandler =() =>{
           setPopup(false);
+          setDiscardPopup(false);
         window.location.reload(true);
       }
 
@@ -73,30 +64,16 @@ const AddRecipe = ({countries}) => {
          window.location.reload(true)
       }
   
-      const addRow=()=>{}
+  const addRow=()=>{}
 
-    
- /*    useEffect(()=>{
-axios.get(' https://restcountries.com/v2/all?fields=name,flags')
-.then(res=> {setCountries(res.data)});
-
-console.log(countries);
-    },[])
- */
-
-/*    
-[ {-name.common
--flags.png
-flags.svg
- - }] */
-
+  
     return (
        
         <div className={classes.addRecipe}>
           <h2>Add a New Recipe</h2>
             <Form countries={countries} submitHandler={submitForm} resetHandler={discardCheck} newIngredient={addRow} newInstruction={addRow}/>
- {popup && <Popup closeHandler={closeHandler}/> } 
- {discardPopup && <DiscardPopup yesHandler={discardChanges} noHandler={setDiscardPopup(false)}/>}
+ {popup && <Popup closeHandler={closeHandler}/> }
+ {discardPopup && <DiscardPopup yesHandler={discardChanges} noHandler={()=>setDiscardPopup()}/>}
         </div>
     );
 };

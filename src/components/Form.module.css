@@ -17,16 +17,17 @@
     border: 2px solid black;
     border-radius: 10px;
     display: block;
+    float: left;
 }
 
 
 .form label {
     width: 180px;
-    display: inline-block;
     text-align: left;
     font-family: inherit;
     cursor: pointer;
     margin: 0.5rem 1rem;
+    float: left;
 }
 
 .form input, select, textarea {
@@ -39,27 +40,31 @@
     padding: 0.5rem;
     text-align: top;
     font-family: inherit;
-
     float: right;
 }
  .form input[type=file] {
    display: none; 
     border-radius: 10px;
+  
  }
 
  .form textarea {
     height: 90px;
     resize: vertical;
+    float: right;
  }
 
  .form button {
     display: block;
+    clear: both;
  }
 
 input.ingredient, label.ingredient {
-    display: inline;
+    display: inline-block;
     width: 100px;
     margin: 0.5rem 0.3rem;
+
+    
 }
 
 

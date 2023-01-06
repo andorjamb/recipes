@@ -7,9 +7,10 @@ const Form = ({countries, submitHandler, resetHandler, newIngredient, newInstruc
 
     const [ingredientRows, setIngredientRows] = useState();
     const ingredRow = useRef();
+    const countriesList = countries;
 
     useEffect(()=>{
-        console.log(countries);
+        console.log(countriesList);
     }, [])
 
 /*     const newIngredient =()=>{
@@ -34,9 +35,9 @@ setIngredientRows()
             <label htmlFor="country">Country &#40;Select from list&#41;</label>
             <select>  <option value="choice" disabled>Select a country</option>
            
-      {/*      {countries.map((country) => {
-            return <option key={country.name.common} name={country.name.common} value={country.name.common}>{country.name.common}</option>
-            })} */}
+ {countries.map((country, index) => {
+            return <option key={country.name} name={country.name} value={country.name}>{country.name}</option>
+            })} 
 
             </select>
             <div><label htmlFor="description">Description</label><textarea maxLength={200} name="description" id="description"/></div>
@@ -45,7 +46,8 @@ setIngredientRows()
             </button></label></div>
             
             <div><label htmlFor="ingredient" className={classes.ingredient}>Ingredient</label>
-            <input type="text" name="ingredient" id="ingredient" className={classes.ingredient} /></div>
+            <table><tr><td><input type="text" name="ingredient" id="ingredient" className={classes.ingredient} /></td></tr></table>
+           </div>
             
 <div><label className={classes.ingredient}>Quantity</label>
             <input type="text" name="quantity" id="quantity" className={classes.ingredient}/>
