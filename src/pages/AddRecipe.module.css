@@ -1,13 +1,10 @@
 .addRecipe {
     background-color: var(--main-bg-color);
     width: calc(var(--app-max-width)*0.6);
-    display: grid;
-    justify-content: center;
-    align-items: center;
     position: relative;
 }
 
 .addRecipe h2 {
-font-size: 2.5rem;
+    font-size: 2.5rem;
 
 }

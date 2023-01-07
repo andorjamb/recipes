@@ -1,11 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Coda+Caption&family=Archivo+Black&family=Pattaya&family=Londrina+Solid&family=Londrina+Outline&display=swap');
+
 :root {
   --app-max-width: 1400px;
-  --main-bg-color: rgb(245,245,245);
+  --main-bg-color: rgb(245, 245, 245);
   --header-bg-color: beige;
   --footer-bg-color-1: rgb(87, 31, 6);
   --footer-bg-color-2: rgb(65, 21, 1);
-  --black:  rgb(29, 32, 46);
+  --black: rgb(29, 32, 46);
+  --mediumgold: rgb(250, 121, 118);
+  --palegold: rgb(223, 165, 76);
+  --orange: rgb(180, 104, 39);
+  --darkorgange: (212, 106, 42);
+  --brown: rgb(48, 6, 3);
+  --yellow: rgb(218, 183, 62);
+  --red: rgb(143, 39, 21);
+  --teal: rgb(187, 239, 216);
+  /* button-background-color: rgb(247, 172, 111);
+ */
 }
+
 /**/
 * {
   margin: 0;

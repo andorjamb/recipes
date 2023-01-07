@@ -9,51 +9,24 @@
 }
 
 .title {
-position: absolute;
-   bottom: 100px;
-   left: 40px;
-  
+    position: absolute;
+    bottom: 100px;
+    left: 40px;
+
 }
 
 .h1 {
+    font-family: 'Londrina Solid';
     color: black;
     opacity: 0.1;
-    font-size: 10rem;  
-    z-index:1;
-    letter-spacing: 1rem;;
+    font-size: 10rem;
+    z-index: 1;
+    letter-spacing: 1rem;
+    ;
     animation-duration: 16s;
     animation-name: color-me-black;
     animation-iteration-count: 1;
 }
-
-
-@keyframes color-me-black {
-    0% {  
-        color: black;
-        opacity: 0.1;
-    }
-
-    25% {  color: white;
-        opacity: 1;    
-    }
-
-    50% {
-        color: yellow;
-        opacity: 0.8;
-        text-shadow: 2px 2px 5px gray;
-    }
-
-    75% {
-        color: white;
-        opacity: 1;
-    }
-
-    99% { color: black;
-        opacity: 0.1
-    }
-}
-
-
 
 .menu {
     position: absolute;
@@ -71,17 +44,18 @@ position: absolute;
     margin: 1rem;
     z-index: 1;
     backdrop-filter: blur(10px);
-    box-shadow: 2px 3px 5px var(--black), 2px 3px 9px darkgray;
+    box-shadow: 2px 3px 5px var(--brown);
     padding: 1rem;
     line-height: 1.3rem;
+    font-weight: 500;
 }
 
 .glassCard h3 {
-color: var(--black);
-font-weight: 700;
-text-align: center;
-margin: 1rem;
-
+    color: var(--brown);
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1rem;
 
 }
 
@@ -91,4 +65,37 @@ margin: 1rem;
 
 .glassCard a:hover {
     text-decoration: none;
+}
+
+@keyframes color-me-black {
+    0% {
+        color: black;
+        opacity: 0.1;
+    }
+
+    22% {
+        color: var(--red);
+        opacity: 0.8;
+    }
+
+    40% {
+        color: var(--orange);
+        opacity: 1;
+    }
+
+    50% {
+        color: var(--yellow);
+        opacity: 0.8;
+        text-shadow: 2px 2px 5px gray;
+    }
+
+    70% {
+        color: white;
+        opacity: 1;
+    }
+
+    99% {
+        color: black;
+        opacity: 0.1
+    }
 }

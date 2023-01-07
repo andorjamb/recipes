@@ -4,12 +4,7 @@ import cooking from '../assets/video/Cooking.mp4';
 import classes from './Home.module.css';
 
 const Home = () => {
-/* 
-    function titleAnimation (){
-        const title = ["T", "a","s","t","e","I","T"];
-        for ()
-        timer = setTimeout()
-    } */
+
     return (
         <div className={classes.home}>
             <video autoPlay loop className={classes.video}><source src={cooking} type="video/mp4"/></video>

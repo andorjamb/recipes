@@ -1,9 +1,8 @@
 .footer {
-    height: 10rem;
+    height: 8rem;
     max-width: var(--app-max-width);
-    background: linear-gradient(to top right, var(--footer-bg-color-1), var(--footer-bg-color-2));
+    background: linear-gradient(to top right, var(--mediumgold), var(--palegold));
     padding-top: 5rem;
-    color: white;
-    
+    color: black;
 
 }

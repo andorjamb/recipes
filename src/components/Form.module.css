@@ -4,22 +4,9 @@
     margin-top: 2rem;
     box-shadow: 2px 3px 5px var(--black), 2px 3px 9px darkgray;
     border-radius: 10px;
-    padding: 1rem 0;
-    
-}
+    padding: 1rem;
 
-.form {
-    text-align: left;
 }
-
-.form label#recipeImageLabel {
-    font-weight: bold;
-    border: 2px solid black;
-    border-radius: 10px;
-    display: block;
-    float: left;
-}
-
 
 .form label {
     width: 180px;
@@ -28,11 +15,20 @@
     cursor: pointer;
     margin: 0.5rem 1rem;
     float: left;
+    vertical-align: center;
+
 }
 
-.form input, select, textarea {
+.ingredients {
+    display: flex;
+
+}
+
+.form input,
+select,
+textarea {
     width: 400px;
-    height: 30px;
+    height: 40px;
     border-radius: 10px;
     box-shadow: 1px 1px 1px darkgray;
     border: none;
@@ -40,33 +36,42 @@
     padding: 0.5rem;
     text-align: top;
     font-family: inherit;
-    float: right;
-}
- .form input[type=file] {
-   display: none; 
-    border-radius: 10px;
-  
- }
 
- .form textarea {
+}
+
+.form input[type=file] {
+    display: none;
+    border-radius: 10px;
+
+}
+
+.form textarea {
     height: 90px;
     resize: vertical;
-    float: right;
- }
 
- .form button {
-    display: block;
-    clear: both;
- }
-
-input.ingredient, label.ingredient {
-    display: inline-block;
-    width: 100px;
-    margin: 0.5rem 0.3rem;
-
-    
 }
 
+.form button {
+    border-radius: 10px;
+    height: 35px;
+    min-width: 150px;
+    font-size: 1rem;
+    padding: 0 0.4rem;
+    border: none;
+    box-shadow: 1px 1px 1px darkgray;
+    font-weight: 600;
+    margin: 1rem;
+
+}
+
+.textareaLabel {
+    line-height: 90px;
+    vertical-align: top;
+}
+
+.inputSmallarea {
+    max-width: 90px;
+}
 
 
 @media screen and (max-width: 600px) {
@@ -74,7 +79,7 @@ input.ingredient, label.ingredient {
         width: 100vw;
     }
 
-    .label{
+    .label {
         display: block;
     }
 }

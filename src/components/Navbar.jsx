@@ -5,7 +5,7 @@ import classes from './Navbar.module.css';
 const Navbar = () => {
     return (
         <nav className={classes.nav}>
-            <div className={classes.title}><Link to="/"><h4>TasteIT</h4></Link></div>
+            <div className={classes.title}><Link to="/">TasteIT</Link></div>
             <div>
                 <ul>
                     <li><NavLink to="/">Home</NavLink></li>

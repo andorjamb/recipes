@@ -8,14 +8,14 @@
     margin: 1.2rem;
     padding: 0.2rem;
     align-items: center;
-    position:relative;
+    position: relative;
 }
 
 .flag {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    position:absolute;
+    position: absolute;
     top: 0px;
     right: 0px;
     background-color: gray;
@@ -53,12 +53,12 @@
     height: 40px;
     width: 160px;
     border-radius: 25px;
-    background-color: rgb(247, 172, 111);
+    background-color: var(--teal);
     color: var(--black);
-    border: 2px solid rgb(78, 30, 21);
+    box-shadow: 1px 2px 2px rgb(25, 29, 16);
     font-weight: 600;
     font-size: 1.1rem;
-  flex: 20%;
+    flex: 20%;
 }
 
 @media screen and (max-width: 600px) {
@@ -66,5 +66,5 @@
         height: 80vh;
         width: 85vw;
     }
-    
+
 }

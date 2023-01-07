@@ -1,8 +1,7 @@
 .main {
-    min-height: 50vh;
+    min-height: 30vh;
     background-color: var(--main-bg-color);
     padding: 1rem;
     max-width: var(--app-max-width);
-   margin: auto;
+    margin: auto;
 }
-   
