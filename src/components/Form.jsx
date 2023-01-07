@@ -7,6 +7,7 @@ import FormInstruction from './FormInstruction';
 const Form = ({ countries, submitHandler, resetHandler }) => {
 
     const [ingNumber, setIngNumber] = useState([0]);
+    const [insNumber, setInsNumber] = useState([0]);
 
     const ingredients = useRef();
     const instructions = useRef();
@@ -14,7 +15,6 @@ const Form = ({ countries, submitHandler, resetHandler }) => {
     const ingInput = useRef();
     const quantityInput = useRef();
     const unitInput = useRef();
-
 
     class IngredientObject {
         constructor(name, quantity, unit) {
@@ -50,18 +50,9 @@ const Form = ({ countries, submitHandler, resetHandler }) => {
 
     const newInstruction = (e) => {
         e.preventDefault();
+        setInsNumber([...insNumber, insNumber.length]);
     }
 
-    /*   const newRow = () => {
-          for (let i = 0; i <= ingredients.current; i++) {
-              ingredients.current.map((item) =>
-                  <div><input type="text" name="ingredient" id="ingredient" className="ingredient" />
-                      <input type="text" name="quantity" id="quantity" className="inputSmallarea" />
-                      <input type="text" name="unit" id="unit" className="inputSmallarea" />
-                  </div>)
-  
-          }
-      } */
 
     return (
         <div className="formDiv">

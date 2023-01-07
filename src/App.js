@@ -13,13 +13,34 @@ import Layout from './pages/Layout';
 function App() {
   const params = useParams();
   const [countries, setCountries] = useState([]);
+  const [recipeData, setRecipeData] = useState([]);
 
+
+  async function getCountryData() {
+    const dataSet1 = await axios.get(' https://restcountries.com/v2/all?fields=name,flag')
+      .then(res => { return (res.data) });
+  }
+
+  async function getRecipeData() {
+    const dataSet2 = await axios.get('http://localhost:3000/recipes')
+      .then(res => { return (res.data) })
+      .catch((err) => console.log(err));
+  }
   useEffect(() => {
-    axios.get(' https://restcountries.com/v2/all?fields=name,flag')
-      .then(res => { setCountries(res.data) });
 
+    const getCountries = async () => {
+      await getCountryData().then(res => setCountries(res));
+    }
+
+    const getRecipes = async () => {
+      await getRecipeData().then(res => setRecipeData(res));
+    }
+
+    getRecipes();
+    getCountries();
     console.log(countries);
-  }, [])
+    console.log(recipeData);
+  }, []);
 
   return (
     <div className="App">
@@ -27,8 +48,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path='/recipes' element={<Recipes countries={countries} />}></Route>
-            <Route path='/recipes/:recipesingle' element={<RecipeSingle />}></Route>
+            <Route path='/recipes' element={<Recipes countries={countries} recipeData={recipeData} />}></Route>
+            <Route path='/recipes/:recipesingle' element={<RecipeSingle recipeData={recipeData} />}></Route>
             <Route path='/addrecipe' element={<AddRecipe countries={countries} />}></Route>
             <Route path='*' element={<NotFound />}></Route>
           </Route></Routes></BrowserRouter>

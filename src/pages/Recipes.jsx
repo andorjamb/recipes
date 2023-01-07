@@ -1,27 +1,21 @@
-import React, { useState, setState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Card from '../components/Card';
-import recipes from '../recipes.json';
+//import recipes from '../recipes.json';
 import classes from './Recipes.module.css';
 
-const recipeData = recipes;
+//const recipeData = recipes;
 
-const Recipes = ({ countries }) => {
+const Recipes = ({ countries, recipeData }) => {
 
-    const [recipes] = useState(recipeData.recipes);
+    /*  const [recipes, setRecipes] = useState(recipeData.recipes); */
+    const [recipes] = useState(recipeData);
     const [searchValue, setSearchValue] = useState('');
     const countriesList = countries;
+
 
     function searchFilter(e) {
         setSearchValue(e.target.value.toLowerCase());
     }
-
-   
-    /* function flagFilter(recipe){
-        countriesList.filter(country => country.name.toLowerCase() === recipe.country.toLowerCase());
-        console.log(thisCountry[0]);
-        //return thisCountry[0].flags.svg;
-      } */
-
 
     const recipesFilter = recipes.filter(recipe => recipe.name.toLowerCase().includes(searchValue) || recipe.country.toLowerCase().includes(searchValue));
 
