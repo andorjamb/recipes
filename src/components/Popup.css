@@ -1,7 +1,7 @@
 .popup {
-    width: 40vw;
+    width: 45vw;
     border-radius: 30px;
-    height: 12rem;
+    height: 16rem;
     margin: 1rem;
     z-index: 1;
     backdrop-filter: blur(10px);
@@ -14,12 +14,17 @@
 }
 
 
-.popup button {
-    height: 40px;
-    width: 100px;
-    border-radius: 10px;
-    padding: 0.5rem;
-    margin: 1rem;
-    font-size: 1.2rem;
-}
+.popup button,
+.discard button {
 
+    border-radius: 10px;
+    height: 35px;
+    min-width: 150px;
+    font-size: 1rem;
+    padding: 0 0.4rem;
+    border: none;
+    box-shadow: 1px 1px 1px darkgray;
+    font-weight: 600;
+    margin: 1rem;
+
+}

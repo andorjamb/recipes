@@ -4,25 +4,24 @@ import classes from './Form.module.css';
 
 const Form = ({ countries, submitHandler, resetHandler, newInstruction }) => {
 
-    const countriesList = countries;
     const ingredients = useRef(null);
     const instructions = useRef(null);
-
-
-
-
-    /*  useEffect(() => {
-         console.log(countriesList);
-     }, []) */
-
+    const ingredientsNumber = useRef(0);
+    const rows = undefined;
     const ingredientRow = (e) => {
         e.preventDefault();
-        const row = `<input type="text" name="ingredient"/>
-            <label>Quantity</label><input type="text" name="quantity"/>
-            <label>Unit</label><input type="text" name="unit"/>`;
-        return ({ Children }, { row })
-    }
+        console.log(ingredientsNumber.current);
+        ingredientsNumber.current++;
 
+        for (let i = 0; i <= ingredients.current; i++) {
+            return rows =
+                <div><input type="text" name="ingredient" id="ingredient" className={classes.ingredient} />
+                    <input type="text" name="quantity" id="quantity" className={classes.inputSmallarea} />
+                    <input type="text" name="unit" id="unit" className={classes.inputSmallarea} />
+                </div>
+
+        }
+    }
 
 
     return (
@@ -33,8 +32,8 @@ const Form = ({ countries, submitHandler, resetHandler, newInstruction }) => {
                 <label htmlFor="author">Author</label>
                 <input type="text" name="author" id="author" />
                 <label htmlFor="country">Country &#40;Select from list&#41;</label>
-                <select>  <option value="choice" disabled>Select a country</option>
-                    {countries.map((country, index) => {
+                <select>  <option value="choice" selected>Select a country</option>
+                    {countries.map((country) => {
                         return <option key={country.name} name={country.name} value={country.name}>{country.name}</option>
                     })}
                 </select>
@@ -54,6 +53,7 @@ const Form = ({ countries, submitHandler, resetHandler, newInstruction }) => {
                     <input type="text" name="quantity" id="quantity" className={classes.inputSmallarea} />
                     <label className={classes.ingredient}>Unit</label><input type="text" name="unit" id="unit" className={classes.inputSmallarea} />
                 </div>
+                {rows}
 
                 <div><button onClick={(e) => ingredientRow(e)}>Add more</button></div>
 
