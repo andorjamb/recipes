@@ -24,6 +24,10 @@
 
 }
 
+.ingredient {
+    max-width: 180px;
+}
+
 .form input,
 select,
 textarea {
@@ -67,6 +71,10 @@ textarea {
 .textareaLabel {
     line-height: 90px;
     vertical-align: top;
+}
+
+.textareaLabelHidden {
+    display: none;
 }
 
 .inputSmallarea {

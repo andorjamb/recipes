@@ -21,9 +21,11 @@ const AddRecipe = ({ countries }) => {
     "cooking_time": 0,
     "servings": 0,
     "directions": [], /* array of strings */
-  }
+  })
 
-  );
+
+  
+
 
 
   const submitForm = (e) => {
@@ -64,14 +66,13 @@ const AddRecipe = ({ countries }) => {
     window.location.reload(true)
   }
 
-  const addRow = () => { }
 
 
   return (
 
     <div className={classes.addRecipe}>
       <h2>Add a New Recipe</h2>
-      <Form countries={countries} submitHandler={submitForm} resetHandler={discardCheck} newIngredRow={addRow} newInstruction={addRow} />
+      <Form countries={countries} submitHandler={submitForm} resetHandler={discardCheck} />
       {popup && <Popup closeHandler={closeHandler} />}
       {discardPopup && <DiscardPopup yesHandler={discardChanges} noHandler={() => setDiscardPopup()} />}
     </div>
