@@ -15,8 +15,6 @@ useEffect(()=>{
  },[])
  */
     
-
-
     return (
         <div className={classes.card} key={recipeName}>
          

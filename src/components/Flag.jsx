@@ -1,25 +1,27 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './Flag.module.css';
 import axios from 'axios';
 
-const Flag = ({country}) => {
+const Flag = ({ country }) => {
 
- 
-    const [flags, setFlags] = useState();   
+    const [flag, setFlag] = useState();
     const [flagImage, setFlagImage] = useState();
-    useEffect(()=>{
-        axios.get(`https://restcountries.com/v2/name/${country}?fields=flags`)
-        .then((res)=>setFlags(res.data));
-    },[])
 
-    useEffect(()=>{
-        console.log(flags);
-        /* setFlagImage(flags.flags.svg); */
-    },[flags])
+    useEffect(() => {
+        axios.get(`https://restcountries.com/v2/name/${country}?fields=flag`)
+            .then((res) => setFlagImage(res.data[0].flag))
+
+    }, []);
+
+    useEffect(() => {
+        console.log(flagImage);
+        /*   setFlagImage(flag); */
+
+    }, [flag])
 
     return (
         <div className={classes.flag}>
-            {setFlags ? <img src={flagImage} alt="flag"/> : null}
+            {setFlag ? <img src={flagImage} key={country} alt="flag" /> : null}
         </div>
     );
 };
