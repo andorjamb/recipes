@@ -41,22 +41,22 @@ const AddRecipe = ({ countries }) => {
 
   const submitForm = (e) => {
     e.preventDefault();
+    axios.post('http://localhost:3000/recipes', { ...newRecipe })
+      .then(res => { console.log(res.data) })
+      .catch((err) => console.log(err));
+
     setPopup(true);
-    saveNewRecipe();
+
   }
 
-  const saveNewRecipe = async (e) => {
-
+  const saveFormData = (e) => {
     setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
     /* let formData = new FormData();
     formData = newRecipe; */
 
     console.log(newRecipe);
 
-    /*   await axios.post('http://localhost:3000/recipes', { ...newRecipe })
-        .then(res => { console.log(res.data) })
-        .catch((err) => console.log(err));
-  */
+
   }
 
   const closeHandler = () => {
@@ -80,7 +80,7 @@ const AddRecipe = ({ countries }) => {
 
     <div className={classes.addRecipe}>
       <h2>Add a New Recipe</h2>
-      <Form countries={countries} submitHandler={submitForm} resetHandler={discardCheck} dataHandler={saveNewRecipe} {...newRecipe} />
+      <Form countries={countries} submitHandler={submitForm} resetHandler={discardCheck} dataHandler={saveFormData} {...newRecipe} />
       {popup && <Popup closeHandler={closeHandler} />}
       {discardPopup && <DiscardPopup yesHandler={discardChanges} noHandler={() => setDiscardPopup()} />}
     </div>
