@@ -31,15 +31,8 @@ function App() {
     getCountryData();
     getRecipeData();
 
-    console.log(countries);
-    console.log(recipeData);
   }, []);
 
-  /*   useEffect(() => {
-  
-      console.log(countries);
-      console.log(recipeData);
-    }, [recipeData, countries]); */
 
 
   return (

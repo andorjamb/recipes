@@ -32,12 +32,12 @@ const RecipeSingle = ({ recipeData }) => {
                 <p>Cooking time: {singleRecipe[0].cooking_time} minutes</p>
                 <p>Servings: {singleRecipe[0].servings}</p>
                 <h3>Ingredients</h3>
-                <table className={classes.ingredients}>
+                <table className={classes.ingredients}><tbody>
                     {singleRecipe[0].ingredients.map((ingredient, i) => { return <tr key={i}><td>{ingredient.quantity}</td><td>{ingredient.unit}</td><td>{ingredient.name}</td></tr> })}
-                </table>
+                </tbody></table>
                 <h3>Directions</h3>
                 <ol className={classes.directions}>
-                    {singleRecipe[0].directions.map((direction) => { return <li>{direction}</li> })}
+                    {singleRecipe[0].directions.map((direction, i) => { return <li key={i}>{direction}</li> })}
 
                 </ol>
             </div>

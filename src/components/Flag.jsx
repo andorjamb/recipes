@@ -13,12 +13,6 @@ const Flag = ({ country }) => {
 
     }, []);
 
-    useEffect(() => {
-        console.log(flagImage);
-        /*   setFlagImage(flag); */
-
-    }, [flag])
-
     return (
         <div className={classes.flag}>
             {setFlag ? <img src={flagImage} key={country} alt="flag" /> : null}
@@ -27,5 +21,3 @@ const Flag = ({ country }) => {
 };
 
 export default Flag;
-
-/* {console.log(res.data)}).then((data) */
