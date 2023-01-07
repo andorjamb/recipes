@@ -31,19 +31,16 @@ function App() {
     getCountryData();
     getRecipeData();
 
-    /* const getCountries = async () => {
-      await getCountryData().then(res => setCountries(res));
-    }
-
-    const getRecipes = async () => {
-      await getRecipeData().then(res => setRecipeData(res));
-    } */
-
-   /*  getRecipes();
-    getCountries(); */
     console.log(countries);
     console.log(recipeData);
   }, []);
+
+  /*   useEffect(() => {
+  
+      console.log(countries);
+      console.log(recipeData);
+    }, [recipeData, countries]); */
+
 
   return (
     <div className="App">

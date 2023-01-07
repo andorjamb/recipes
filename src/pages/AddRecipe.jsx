@@ -16,16 +16,27 @@ const AddRecipe = ({ countries }) => {
     "country": "",
     "description": "",
     "image": "",
-    "ingredients": [],/* array of objects */
+    "ingredients": [],/* array of objects  - needs to be passed up from child*/
     "preparation_time": 0,
     "cooking_time": 0,
     "servings": 0,
     "directions": [], /* array of strings */
   })
 
-
-  
-
+  class newRecipe2 {
+    constructor(name, author, country, description, image, ingredients, preparation_time, cooking_time, servings, directions) {
+      this.name = name;
+      this.author = author;
+      this.country = country;
+      this.description = description;
+      this.image = image;
+      this.ingredients = ingredients;
+      this.preparation_time = preparation_time;
+      this.cooking_time = cooking_time;
+      this.servings = servings;
+      this.directions = directions;
+    }
+  }
 
 
   const submitForm = (e) => {
@@ -34,21 +45,19 @@ const AddRecipe = ({ countries }) => {
     saveNewRecipe();
   }
 
-  const saveNewRecipe = async () => {
+  const saveNewRecipe = async (e) => {
 
-    let formData = new FormData();
-    formData = newRecipe;
+    setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
+    /* let formData = new FormData();
+    formData = newRecipe; */
 
-    await axios({
-      method: "post",
-      url: 'http://localhost:3000/db.json',
-      data: formData,
-      headers: { "Content-Type": "multipart/form-data" },
-    })
-      .then((res) => { console.log(res); })
-      .catch((error) => console.log(error));
+    console.log(newRecipe);
+
+    /*   await axios.post('http://localhost:3000/recipes', { ...newRecipe })
+        .then(res => { console.log(res.data) })
+        .catch((err) => console.log(err));
+  */
   }
-
 
   const closeHandler = () => {
     setPopup(false);
@@ -67,16 +76,16 @@ const AddRecipe = ({ countries }) => {
   }
 
 
-
   return (
 
     <div className={classes.addRecipe}>
       <h2>Add a New Recipe</h2>
-      <Form countries={countries} submitHandler={submitForm} resetHandler={discardCheck} />
+      <Form countries={countries} submitHandler={submitForm} resetHandler={discardCheck} dataHandler={saveNewRecipe} {...newRecipe} />
       {popup && <Popup closeHandler={closeHandler} />}
       {discardPopup && <DiscardPopup yesHandler={discardChanges} noHandler={() => setDiscardPopup()} />}
     </div>
   );
 };
+
 
 export default AddRecipe;
