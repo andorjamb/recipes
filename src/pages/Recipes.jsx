@@ -12,7 +12,6 @@ const Recipes = ({ countries, recipeData }) => {
     const [searchValue, setSearchValue] = useState('');
     const countriesList = countries;
 
-
     function searchFilter(e) {
         setSearchValue(e.target.value.toLowerCase());
     }

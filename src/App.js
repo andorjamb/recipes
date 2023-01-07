@@ -17,27 +17,30 @@ function App() {
 
 
   async function getCountryData() {
-    const dataSet1 = await axios.get(' https://restcountries.com/v2/all?fields=name,flag')
-      .then(res => { return (res.data) });
+    await axios.get(' https://restcountries.com/v2/all?fields=name,flag')
+      .then(res => { setCountries(res.data) });
   }
 
   async function getRecipeData() {
-    const dataSet2 = await axios.get('http://localhost:3000/recipes')
-      .then(res => { return (res.data) })
+    await axios.get('http://localhost:3000/recipes')
+      .then(res => { setRecipeData(res.data) })
       .catch((err) => console.log(err));
   }
   useEffect(() => {
 
-    const getCountries = async () => {
+    getCountryData();
+    getRecipeData();
+
+    /* const getCountries = async () => {
       await getCountryData().then(res => setCountries(res));
     }
 
     const getRecipes = async () => {
       await getRecipeData().then(res => setRecipeData(res));
-    }
+    } */
 
-    getRecipes();
-    getCountries();
+   /*  getRecipes();
+    getCountries(); */
     console.log(countries);
     console.log(recipeData);
   }, []);
