@@ -7,12 +7,13 @@ A Reactjs web application.
 
 ### Live site
 
-viewable on [Netlify](https://tasteit-recipe-app.netlify.app)
+(might be) viewable on [Netlify](https://tasteit-recipe-app.netlify.app)
 
 ## Screenshots from project:
 
 ![screenshot](https://github.com/andorjamb/recipes/blob/master/screenshot_recipe_home.png)
 ![screenshot](https://github.com/andorjamb/recipes/blob/master/screenshot_recipes_recipes.png)
+![screenshot](https://github.com/andorjamb/recipes/blob/master/screenshot_recipes_addrecipes.png)
 
 Media source attributions: 
 Stirfry Video: pixabay (user billialan9216-24764816)

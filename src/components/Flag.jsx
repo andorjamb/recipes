@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const Flag = ({ country }) => {
 
-    const [flag, setFlag] = useState();
     const [flagImage, setFlagImage] = useState();
 
     useEffect(() => {
@@ -15,7 +14,7 @@ const Flag = ({ country }) => {
 
     return (
         <div className={classes.flag}>
-            {setFlag ? <img src={flagImage} key={country} alt="flag" /> : null}
+            {flagImage ? <img src={flagImage} key={country} alt="flag" /> : null}
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 import Form from '../components/Form';
@@ -23,7 +23,7 @@ const AddRecipe = ({ countries }) => {
     "directions": [], /* array of strings */
   })
 
-  class newRecipe2 {
+  /* class newRecipe2 {
     constructor(name, author, country, description, image, ingredients, preparation_time, cooking_time, servings, directions) {
       this.name = name;
       this.author = author;
@@ -36,7 +36,7 @@ const AddRecipe = ({ countries }) => {
       this.servings = servings;
       this.directions = directions;
     }
-  }
+  } */
 
 
   const submitForm = (e) => {

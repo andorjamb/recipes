@@ -11,7 +11,7 @@ import AddRecipe from './pages/AddRecipe';
 import Layout from './pages/Layout';
 
 function App() {
-  const params = useParams();
+  //const params = useParams();
   const [countries, setCountries] = useState([]);
   const [recipeData, setRecipeData] = useState([]);
 
