@@ -1,8 +1,18 @@
 .recipeSingle {
-    max-width: var(--app-max-width);
     min-width: 60vw;
     min-height: 80vh;
-    padding-left: 1rem; 
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.slim {
+    line-height: 1rem;
+
+}
+
+h2 {
+    text-align: center;
 }
 
 .loading {
@@ -13,6 +23,7 @@
 .recipeSingle img {
     width: 60vw;
     height: auto;
+    margin: auto;
 }
 
 .recipeSingle h3 {
@@ -20,13 +31,15 @@
     text-align: left;
 }
 
-.ingredients td, .directions li{
-    text-align: left; 
+.ingredients td,
+.directions li {
+    text-align: left;
     padding: 0.2rem;
-    
+
 }
 
-.description h3, p{
+.description h3,
+p {
     text-align: center;
     padding: 0.3rem;
     margin: 0.5rem;
@@ -36,5 +49,5 @@
     .recipeSingle img {
         display: none;
     }
-    
+
 }

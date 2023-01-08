@@ -1,21 +1,24 @@
+.search {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .recipes {
     padding: 1rem;
     display: grid;
+    max-width: calc(0.8*var(--app-max-width));
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: auto;
     height: auto;
+    margin: auto;
 }
 
-.search {
-    display: flex;
-    justify-content: center;
-    height: 80px;
-
-    
-}
 
 .search label {
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+
 }
 
 .search input {

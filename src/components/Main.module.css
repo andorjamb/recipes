@@ -4,7 +4,7 @@
     background-color: var(--main-bg-color);
     padding: 1rem;
     margin: auto;
-    display: flex;
-    justify-content: center;
-    
+    /*   display: flex;
+    justify-content: center; */
+
 }
