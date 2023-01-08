@@ -14,8 +14,6 @@ const AddRecipe = ({ countries }) => {
   const [success, setSuccess] = useState(false);
   const [ingredientsState, setIngredientsState] = useState([]);
   const [directionsState, setDirectionsState] = useState([])
-
-
   const [newRecipe, setNewRecipe] = useState({
     name: "",
     author: "",
@@ -27,10 +25,9 @@ const AddRecipe = ({ countries }) => {
     cooking_time: 0,
     servings: 0,
     directions: [], /* array of strings */
-
   })
 
-  function dataAdapter(obj) { /** mutates object */
+  function dataAdapter(obj) {
     return Object.assign(obj, {
       preparation_time: +obj.preparation_time,
       cooking_time: +obj.cooking_time,
@@ -41,6 +38,7 @@ const AddRecipe = ({ countries }) => {
   const submitForm = (e) => {
     e.preventDefault();
     let object = newRecipe;
+    console.log(object);
     setNewRecipe(dataAdapter(object));
 
     axios.post('http://localhost:3000/recipes', { ...newRecipe })
@@ -59,10 +57,22 @@ const AddRecipe = ({ countries }) => {
 
   }
 
-  const setFormData = (e) => { /**onChange event */
+  const setFormData = (e) => {
     setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
-    console.log(newRecipe);
   }
+
+  const ingredientHandler = (formData) => {
+    /* setIngredientsState({ ...ingredientsState, formData });
+    console.log(ingredientsState);
+    console.log(formData); */
+  }
+
+  const instructionHandler = (formData) => {
+    setDirectionsState([...directionsState, formData]);
+    console.log(directionsState);
+    console.log(formData);
+  }
+
 
   useEffect(() => {
     setNewRecipe({ ...newRecipe, ingredients: ingredientsState });
@@ -70,26 +80,7 @@ const AddRecipe = ({ countries }) => {
 
   useEffect(() => {
     setNewRecipe({ ...newRecipe, directions: directionsState });
-    console.log(directionsState);
-    console.log(newRecipe);
   }, [directionsState]);
-
-  const ingredientHandler = (e) => { /**onBlur event */
-
-    /*     setNewRecipe({ ...newRecipe, ingredients: ingredientsState }); */
-
-  }
-
-  const instructionHandler = (formData) => { /**onBlur event */
-    setDirectionsState([...directionsState, formData]);
-    console.log(directionsState);
-    console.log(formData);
-
-    /*     setNewRecipe({ ...newRecipe, directions: directionsState }); */
-    /*   setCheckUpdatesDirections(!setCheckUpdatesDirections); */
-
-  }
-
 
 
   const closeHandler = () => {
@@ -105,6 +96,11 @@ const AddRecipe = ({ countries }) => {
   const discardChanges = () => {
     setDiscardPopup(false);
     window.location.reload(true)
+  }
+
+  const keepChanges = () => {
+    setDiscardPopup(false);
+    window.location.reload(false);
   }
 
   return (
@@ -124,7 +120,7 @@ const AddRecipe = ({ countries }) => {
         directions={directionsState} />
       {popup && success && <Popup closeHandler={closeHandler} />}
       {popup && !success && <FailPopup closeHandler={closeHandler} />}
-      {discardPopup && <DiscardPopup yesHandler={discardChanges} noHandler={() => setDiscardPopup(false)} />}
+      {discardPopup && <DiscardPopup yesHandler={discardChanges} noHandler={keepChanges} />}
     </div>
   );
 };

@@ -29,3 +29,25 @@
     padding: 0.5rem;
     font-size: 1.1rem;
 }
+
+@media screen and (max-width:1070px) {
+    .recipes {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100vw;
+        height: auto;
+        justify-content: center;
+
+    }
+
+}
+
+@media screen and (max-width:600px) {
+    .recipes {
+        display: flex;
+        max-width: 80vw;
+        height: auto;
+        margin: auto;
+    }
+
+}

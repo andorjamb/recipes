@@ -23,38 +23,33 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
         }
     }
 
-    const ingredientRow = (e) => { /** button onClick handler */
+    const ingredientRow = (e) => {
         e.preventDefault();
         console.log(ingredientsState);
         if (nameInput.current.value === undefined || quantityInput.current.value === '' || unitInput.current.value === '') { return null; }
         else {
             let newIngObj = new IngredientObject(nameInput.current.value, quantityInput.current.value, unitInput.current.value);
-            setIngredientsState(ingredientsState => [...ingredientsState, newIngObj]);
+            console.log(newIngObj);
+            //setIngredientsState(ingredientsState => [...ingredientsState, newIngObj]);
             setIngNumber([...ingNumber, ingNumber.length]);
-
-            console.log(nameInput.current.value);
             setIngredientsState([...ingredientsState, newIngObj]);
+            ingredientHandler(newIngObj);
             console.log(ingredientsState);
         }
     }
 
-    useEffect(() => {
-
-    }, [])
-
-    const newInstruction = (e) => { /** onClick event */
+    const newInstruction = (e) => {
         e.preventDefault();
         if (instructionInput.current.value === undefined || instructionInput.current.value === '') { return null; }
         else {
             let newIns = instructionInput.current.value;
             setInsNumber([...insNumber, insNumber.length]);
+            console.log(newIns);
             instructionHandler(newIns);
 
             let tempArray = [];
             tempArray.push(newIns);
             console.log('tempArray:', tempArray);
-
-
         }
     }
 
@@ -85,7 +80,6 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
 
                 {ingNumber.map((i) => <FormIngredient key={i} ref1={nameInput} ref2={quantityInput} ref3={unitInput} blurHandler={ingredientHandler} />)}
 
-
                 <div className='block'><button onClick={(e) => ingredientRow(e)}>Add more</button></div>
 
                 <section className='flex'>
@@ -97,18 +91,21 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
                         <label htmlFor="cooking_time">Cooking time </label>
                         <input type="text" placeholder="minutes" name="cooking_time" id="cooking_time" className="inputSmallarea" onChange={onChangeHandler} />
                     </div>
+                    <div>
+                        <label htmlFor="servings">Servings</label>
+                        <input type="number" name="servings" id="servings" onChange={onChangeHandler} className="inputSmallarea"></input>
+                    </div>
                 </section>
 
                 <div className="block">
                     <label htmlFor="instructions" className="textareaLabel">Instructions</label>
-                    {insNumber.map((i) => <FormInstruction key={i} /* instructionChangeHandler={instructionHandler} */ ref4={instructionInput} />)}
-
+                    {insNumber.map((i) => <FormInstruction key={i} ref4={instructionInput} />)}
                 </div>
 
                 <button onClick={(e) => newInstruction(e)}>Add another step</button>
 
                 <div className='flex'><button type="submit" onClick={submitHandler}>Submit Recipe</button>
-                    <button type="reset" onClick={resetHandler}>Discard changes</button>
+                    <button onClick={resetHandler}>Discard changes</button>
                 </div>
             </form>
         </div>

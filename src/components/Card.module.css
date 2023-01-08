@@ -61,10 +61,12 @@
     flex: 20%;
 }
 
+
+
 @media screen and (max-width: 600px) {
     .card {
-        height: 80vh;
-        width: 85vw;
+        height: 50vh;
+        max-width: 85vw;
     }
 
 }
