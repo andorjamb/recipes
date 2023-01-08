@@ -5,6 +5,11 @@ End-of-term project work for React course at Helsinki Business College.
 
 A Reactjs web application.
 
+## Start up notes
+
+This site uses a JSON-server running on port 3000.
+```json-server --watch recipes.json --port 3000```
+
 ### Live site
 
 (might be) viewable on [Netlify](https://tasteit-recipe-app.netlify.app)

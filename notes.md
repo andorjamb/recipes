@@ -23,7 +23,7 @@ flags.svg
 
 
 
- excised from AddRecipes
+ ## excised from AddRecipes
 
    /* let formData = new FormData();
     formData = newRecipe; */
@@ -42,3 +42,28 @@ flags.svg
       this.directions = directions;
     }
   } */
+
+
+ ##  a sample object adapter
+
+  'use strict';
+
+function adapt(item){
+    return {
+        id:+item.id,
+        firstname:item.firstname,
+        lastname:item.lastname,
+        department:item.department,
+        salary:+item.salary //also Number(item.salary)
+    }
+}
+
+### using Object.assign() :
+
+function adapt(item){
+    console.log('adapterV2')
+    return Object.assign(item, {
+        id:+item.id,
+        salary:+item.salary
+    });
+}

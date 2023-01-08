@@ -5,7 +5,39 @@
     box-shadow: 2px 3px 5px var(--black), 2px 3px 9px darkgray;
     border-radius: 10px;
     padding: 1rem;
+    overflow: auto;
 
+}
+
+input[type="text"] {
+    text-align: center;
+}
+
+.form {
+    overflow: auto;
+    display: flow-root;
+}
+
+.flex {
+    display: flex;
+    clear: both;
+    width: 100%;
+
+}
+
+.block {
+    display: block;
+    clear: both;
+    margin: auto;
+}
+
+.inline-block {
+    display: inline-block;
+    clear: both;
+}
+
+.ingredient {
+    max-width: 100px;
 }
 
 .form label {
@@ -13,49 +45,46 @@
     text-align: left;
     font-family: inherit;
     cursor: pointer;
-    margin: 0.5rem 1rem;
+    margin: 0.2rem 1rem;
     float: left;
     vertical-align: center;
+    clear: both;
 
 }
 
-.flex {
-    display: flex;
-
+.textareaLabel {
+    line-height: 90px;
+    vertical-align: text-top;
+    text-align: left;
+    float: left;
 }
 
-.ingredient {
-    max-width: 180px;
+.textareaLabelHidden {
+    display: none;
 }
 
 .form input,
 select,
-textarea {
+textarea,
+input[type="url"] {
     width: 400px;
-    height: 40px;
+    min-height: 40px;
     border-radius: 10px;
     box-shadow: 1px 1px 1px darkgray;
     border: none;
     margin: 0.5rem 1rem;
     padding: 0.5rem;
-    text-align: top;
     font-family: inherit;
 
 }
 
-.form input[type=file] {
-    display: none;
-    border-radius: 10px;
-
-}
-
 .form textarea {
-    height: 90px;
+    min-height: 70px;
     resize: vertical;
-
 }
 
 .form button {
+    clear: both;
     border-radius: 10px;
     height: 35px;
     min-width: 150px;
@@ -68,17 +97,10 @@ textarea {
 
 }
 
-.textareaLabel {
-    line-height: 90px;
-    vertical-align: top;
-}
-
-.textareaLabelHidden {
-    display: none;
-}
 
 .inputSmallarea {
     max-width: 90px;
+    flex: 1;
 }
 
 

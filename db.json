@@ -1,1 +1,32 @@
-{}
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "name": "bla",
+      "author": "blabla",
+      "country": "Åland Islands",
+      "description": "so goood",
+      "image": "",
+      "ingredients": "",
+      "preparation_time": 23,
+      "cooking_time": 34,
+      "servings": 0,
+      "directions": "",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

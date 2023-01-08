@@ -1,6 +1,7 @@
 {
   "recipes": [
     {
+      "id": 1,
       "name": "Chicken Parmesan",
       "author": "Maria Valentina",
       "country": "Italy",
@@ -60,6 +61,7 @@
       }
     },
     {
+      "id": 2,
       "name": "Pad Thai",
       "author": "Malee Saelim",
       "country": "Thailand",
@@ -130,6 +132,7 @@
       }
     },
     {
+      "id": 3,
       "name": "Chicken Alfredo",
       "author": "Flavio Giovanni",
       "country": "Italy",
@@ -196,6 +199,7 @@
       }
     },
     {
+      "id": 4,
       "name": "Beef Stroganoff",
       "author": "Alexsei Sidorov",
       "country": "Russia",
@@ -267,6 +271,7 @@
       }
     },
     {
+      "id": 5,
       "name": "Vegetable Stir-Fry",
       "author": "Mao Dong",
       "country": "China",
@@ -347,6 +352,7 @@
       }
     },
     {
+      "id": 6,
       "name": "Finnish Pancakes",
       "author": "Matti Meikäläinen",
       "country": "Finland",
@@ -409,6 +415,7 @@
       }
     },
     {
+      "id": 7,
       "name": "German Potato Salad",
       "author": "Peter Niedersachsen",
       "country": "Germany",
@@ -475,6 +482,7 @@
       }
     },
     {
+      "id": 8,
       "name": "Swiss Cheese Fondue",
       "author": "Karl Franz",
       "country": "Switzerland",
@@ -526,6 +534,7 @@
       }
     },
     {
+      "id": 9,
       "name": "Classic American Cheeseburger",
       "author": "John Doe",
       "country": "United States",
@@ -583,6 +592,7 @@
       }
     },
     {
+      "id": 10,
       "name": "American Pancakes",
       "author": "John Doe",
       "country": "United States",
@@ -645,6 +655,7 @@
       }
     },
     {
+      "id": 11,
       "name": "Peanut Butter and Jelly Sandwich",
       "author": "Jane Doe",
       "country": "United States",
@@ -684,6 +695,7 @@
       }
     },
     {
+      "id": 12,
       "name": "Paella",
       "author": "Juan Perez",
       "country": "Spain",
@@ -772,6 +784,7 @@
       }
     },
     {
+      "id": 13,
       "name": "Köttbullar (Swedish Meatballs)",
       "author": "Lena Svensson",
       "country": "Sweden",
@@ -860,6 +873,7 @@
       }
     },
     {
+      "id": 14,
       "name": "Bigos (Polish Hunter's Stew)",
       "author": "Kasia Nowak",
       "country": "Poland",
@@ -948,6 +962,7 @@
       }
     },
     {
+      "id": 15,
       "name": "Teriyaki Chicken",
       "author": "Akasuki Akina",
       "country": "Japan",
@@ -1003,6 +1018,19 @@
         "carbohydrates": 28,
         "protein": 36
       }
+    },
+    {
+      "name": "Anna's Special Stew",
+      "author": "Anna Niletep",
+      "country": "American Samoa",
+      "description": "chunky",
+      "image": "https://unsplash.com/photos/eEWlcfydzQ4",
+      "ingredients": "",
+      "preparation_time": 45,
+      "cooking_time": 45,
+      "servings": 0,
+      "directions": "",
+      "id": 16
     }
   ]
 }
