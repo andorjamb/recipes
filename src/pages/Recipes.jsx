@@ -16,8 +16,11 @@ const Recipes = ({ countries, recipeData }) => {
 
     return (
         <>
-            <div className={classes.search}><label htmlFor='searchValue'>Search recipes:</label>
-                <input type="search" name='searchValue' id='searchValue' onChange={(e) => searchFilter(e)} placeholder="search by recipe or country" /></div>
+            <div className={classes.search}>
+                <label htmlFor='searchValue'>Search recipes:</label>
+                <input type="search" name='searchValue' id='searchValue' onChange={
+                    (e) => searchFilter(e)} placeholder="search by recipe or country" />
+                    </div>
             <div className={classes.recipes}>
                 {recipesFilter.map((recipe, i) =>
                     <Card

@@ -1,11 +1,15 @@
 .home {
-    background-color: --var(--main-bg-color);
     height: 100%;
+    width: 100%;
     position: relative;
+
 }
 
 .video {
-    z-index: -1;
+    z-index: 0;
+    margin: auto;
+    position: relative;
+    width: 100%;
 }
 
 .title {
@@ -22,7 +26,6 @@
     font-size: 10rem;
     z-index: 1;
     letter-spacing: 1rem;
-    ;
     animation-duration: 12s;
     animation-name: color-me-black;
     animation-iteration-count: 1;
@@ -35,6 +38,8 @@
     top: 80px;
     z-index: 0;
     padding: 0 2rem;
+    padding-left: 10%;
+ 
 }
 
 .glassCard {

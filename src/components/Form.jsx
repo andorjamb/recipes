@@ -66,7 +66,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
                 <label htmlFor="author">Author</label>
                 <input type="text" name="author" id="author" onBlur={onChangeHandler} />
                 <label htmlFor="country">Country &#40;Select from list&#41;</label>
-                <select name="country" onBlur={onChangeHandler}>  <option value="choice" defaultValue={'Select a country'}>Select a country</option>
+                <select name="country" onChange={onChangeHandler}>  <option value="choice" defaultValue={'Select a country'}>Select a country</option>
                     {countries.map((country) => {
                         return <option key={country.name} name={country.name} value={country.name}>{country.name}</option>
                     })}
@@ -77,10 +77,10 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
                 <textarea maxLength={400} name="description" id="description" onChange={onChangeHandler} />
 
                 <label htmlFor='image'>ImageURL</label>
-                <input type="url" id='image' name='image' maxLength={200} onChange={onChangeHandler} />
+                <input type="url" id='image' name='image' maxLength={200} onBlur={onChangeHandler} />
 
 
-                <label htmlFor="ingredients">Ingredients</label>
+                <label htmlFor="ingredients"><h4>Ingredients</h4></label>
 
                 {ingNumber.map((i) => <FormIngredient key={i} ref1={nameInput} ref2={quantityInput} ref3={unitInput} blurHandler={ingredientHandler} />)}
 
@@ -88,16 +88,16 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
 
                 <div className='block'><button onClick={(e) => ingredientRow(e)}>Add more</button></div>
 
-                <div className='flex'>
-                    <div><label htmlFor="preparation_time">Preparation time
+                <section className='flex'>
+                    <div>
+                <label htmlFor="preparation_time">Preparation time</label>
                         <input type="text" placeholder="minutes" name="preparation_time" id="preparation_time" className="inputSmallarea" onChange={onChangeHandler} />
-                    </label>
-                    </div>
-                    <div><label htmlFor="cooking_time">Cooking time
+        </div>
+                    <div>
+                    <label htmlFor="cooking_time">Cooking time </label>
                         <input type="text" placeholder="minutes" name="cooking_time" id="cooking_time" className="inputSmallarea" onChange={onChangeHandler} />
-                    </label>
-                    </div>
-                </div>
+                   </div>
+                </section>
 
                 <div className="block">
                     <label htmlFor="instructions" className="textareaLabel">Instructions</label>

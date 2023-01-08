@@ -1,6 +1,5 @@
 .layout {
     max-width: var(--app-max-width);
-    margin: auto;
-    display: grid;   
+    
 }
 

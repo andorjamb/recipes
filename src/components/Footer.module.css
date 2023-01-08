@@ -2,14 +2,14 @@
     height: 8rem;
     max-width: var(--app-max-width);
     background: linear-gradient(to top right, var(--mediumgold), var(--palegold));
-    padding: 4rem;
+    padding: 2rem;
     color: black;
     display: flex;
     justify-content: space-between;
 
 }
 
-img {
+.footer img {
     height: 40px;
     width: auto;
 }

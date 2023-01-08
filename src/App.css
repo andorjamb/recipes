@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   max-width: var(--app-max-width);
-  margin: auto;
+ margin:auto;
 }

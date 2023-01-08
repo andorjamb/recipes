@@ -1,6 +1,4 @@
 .recipes {
-   
-    background-color: var(--main-bg-color);
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(4, 25%);
@@ -9,11 +7,11 @@
 }
 
 .search {
+    display: flex;
+    justify-content: center;
     height: 80px;
-    width: 100%;
+
     
-
-
 }
 
 .search label {

@@ -9,10 +9,6 @@
 
 }
 
-input[type="text"] {
-    text-align: center;
-}
-
 .form {
     overflow: auto;
 
@@ -22,9 +18,7 @@ input[type="text"] {
     display: flex;
     clear: both;
     width: 100%;
-    border: 2px solid red;
     justify-content: space-around;
-
 
 }
 
@@ -51,15 +45,14 @@ input[type="text"] {
     cursor: pointer;
     margin: 0.2rem 1rem;
     float: left;
-    vertical-align: center;
-    clear: both;
+    vertical-align: top;
+    clear: inline-start;
     line-height: 20px;
 
 }
 
 .textareaLabel {
-    line-height: 90px;
-    vertical-align: text-top;
+    vertical-align: top;
     text-align: left;
     float: left;
 }
@@ -80,8 +73,12 @@ input[type="url"] {
     margin: 0.5rem 1rem;
     padding: 0.5rem;
     font-family: inherit;
-    clear: both;
+    clear: inline-start;;
 
+}
+
+input[type="text"] {
+    text-align: center;
 }
 
 .form textarea {
@@ -100,6 +97,8 @@ input[type="url"] {
     box-shadow: 1px 1px 1px darkgray;
     font-weight: 600;
     margin: 1rem;
+    margin-right: 100px;
+    float: right;
 
 }
 
@@ -107,6 +106,10 @@ input[type="url"] {
 .inputSmallarea {
     max-width: 90px;
     flex: 1;
+}
+
+label h4 {
+    margin: 1rem 0;
 }
 
 
