@@ -4,7 +4,7 @@ import FormIngredient from './FormIngredient';
 import FormInstruction from './FormInstruction';
 
 
-const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredientHandler, instructionHandler, setIngredientsState, ingredientsState, directionsState, setDirectionsState }) => {
+const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredientHandler, instructionHandler, setIngredientsState, ingredientsState, directionsState }) => {
 
     const [ingNumber, setIngNumber] = useState([0]);
     const [insNumber, setInsNumber] = useState([0]);
@@ -12,6 +12,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
     const nameInput = useRef();
     const quantityInput = useRef();
     const unitInput = useRef();
+
     const instructionInput = useRef();
 
     class IngredientObject {
@@ -41,18 +42,18 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
 
     }, [])
 
-    const newInstruction = (e) => {
+    const newInstruction = (e) => { /** onClick event */
         e.preventDefault();
-
-        if (nameInput.current.value === undefined || quantityInput.current.value === '') { return null; }
+        if (instructionInput.current.value === undefined || instructionInput.current.value === '') { return null; }
         else {
-            setInsNumber([...insNumber, insNumber.length]);
             let newIns = instructionInput.current.value;
-            setIngNumber([...insNumber, insNumber.length]);
+            setInsNumber([...insNumber, insNumber.length]);
+            instructionHandler(newIns);
 
-            console.log(instructionInput.current.value);
+            let tempArray = [];
+            tempArray.push(newIns);
+            console.log('tempArray:', tempArray);
 
-            setDirectionsState([...directionsState, newIns]);
 
         }
     }
@@ -85,23 +86,22 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
                 {ingNumber.map((i) => <FormIngredient key={i} ref1={nameInput} ref2={quantityInput} ref3={unitInput} blurHandler={ingredientHandler} />)}
 
 
-
                 <div className='block'><button onClick={(e) => ingredientRow(e)}>Add more</button></div>
 
                 <section className='flex'>
                     <div>
-                <label htmlFor="preparation_time">Preparation time</label>
+                        <label htmlFor="preparation_time">Preparation time</label>
                         <input type="text" placeholder="minutes" name="preparation_time" id="preparation_time" className="inputSmallarea" onChange={onChangeHandler} />
-        </div>
+                    </div>
                     <div>
-                    <label htmlFor="cooking_time">Cooking time </label>
+                        <label htmlFor="cooking_time">Cooking time </label>
                         <input type="text" placeholder="minutes" name="cooking_time" id="cooking_time" className="inputSmallarea" onChange={onChangeHandler} />
-                   </div>
+                    </div>
                 </section>
 
                 <div className="block">
                     <label htmlFor="instructions" className="textareaLabel">Instructions</label>
-                    {insNumber.map((i) => <FormInstruction key={i} instructionChangeHandler={instructionHandler} ref4={instructionInput} />)}
+                    {insNumber.map((i) => <FormInstruction key={i} /* instructionChangeHandler={instructionHandler} */ ref4={instructionInput} />)}
 
                 </div>
 

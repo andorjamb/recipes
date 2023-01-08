@@ -1042,45 +1042,6 @@
       "servings": 0,
       "directions": [],
       "id": 16
-    },
-    {
-      "name": "",
-      "author": "",
-      "country": "",
-      "description": "",
-      "image": "",
-      "ingredients": [],
-      "preparation_time": 0,
-      "cooking_time": 0,
-      "servings": 0,
-      "directions": {},
-      "id": 17
-    },
-    {
-      "name": "",
-      "author": "",
-      "country": "",
-      "description": "",
-      "image": "",
-      "ingredients": [],
-      "preparation_time": 0,
-      "cooking_time": 0,
-      "servings": 0,
-      "directions": [],
-      "id": 18
-    },
-    {
-      "name": "",
-      "author": "",
-      "country": "",
-      "description": "",
-      "image": "",
-      "ingredients": [],
-      "preparation_time": 0,
-      "cooking_time": 0,
-      "servings": 0,
-      "directions": {},
-      "id": 19
     }
   ]
 }

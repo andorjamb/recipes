@@ -1,18 +1,35 @@
+.overlay {
+    z-index: 1;
+    position: fixed;
+    background: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+
+}
+
+
 .popup {
+    z-index: 2;
     max-width: 45vw;
     border-radius: 30px;
     height: 16rem;
     margin: 1rem;
-    z-index: 1;
     backdrop-filter: blur(10px);
     box-shadow: 2px 3px 5px var(--black), 2px 3px 9px darkgray;
     padding: 1rem;
     line-height: 1.3rem;
-    position: absolute;
-    top: 200px;
     margin: 0 20%;
-    display: flex;
-    flex-direction: column;
+    display: block;
+    position: relative;
+    overflow: hidden;
+
 }
 
 

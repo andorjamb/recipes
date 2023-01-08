@@ -35,11 +35,11 @@
     position: absolute;
     display: flex;
     justify-content: space-around;
-    top: 80px;
+    top: 50px;
     z-index: 0;
     padding: 0 2rem;
     padding-left: 10%;
- 
+
 }
 
 .glassCard {
@@ -69,8 +69,9 @@
     text-decoration: none;
 }
 
-.glassCard a:hover {
+.glassCard a h3:hover {
     text-decoration: none;
+    color: var(--orange);
 }
 
 @keyframes color-me-black {
