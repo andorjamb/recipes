@@ -15,18 +15,21 @@ input[type="text"] {
 
 .form {
     overflow: auto;
-    display: flow-root;
+
 }
 
 .flex {
     display: flex;
     clear: both;
     width: 100%;
+    border: 2px solid red;
+    justify-content: space-around;
+
 
 }
 
 .block {
-    display: block;
+    display: flow-root;
     clear: both;
     margin: auto;
 }
@@ -37,7 +40,8 @@ input[type="text"] {
 }
 
 .ingredient {
-    max-width: 100px;
+    max-width: 180px;
+    float: left;
 }
 
 .form label {
@@ -49,6 +53,7 @@ input[type="text"] {
     float: left;
     vertical-align: center;
     clear: both;
+    line-height: 20px;
 
 }
 
@@ -75,6 +80,7 @@ input[type="url"] {
     margin: 0.5rem 1rem;
     padding: 0.5rem;
     font-family: inherit;
+    clear: both;
 
 }
 

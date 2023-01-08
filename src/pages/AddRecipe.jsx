@@ -12,21 +12,22 @@ const AddRecipe = ({ countries }) => {
   const [popup, setPopup] = useState(false);
   const [discardPopup, setDiscardPopup] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [ingredientsState, setIngredientsState] = useState([]);
+  const [ingredientsState, setIngredientsState] = useState([]); /**default value: empty array */
+  const [directionsState, setDirectionsState] = useState([])
+
   const [newRecipe, setNewRecipe] = useState({
     name: "",
     author: "",
     country: "",
     description: "",
     image: "",
-    ingredients: "",/* array of objects  - needs to be passed up from child*/
+    ingredients: [],/* array of objects */
     preparation_time: 0,
     cooking_time: 0,
     servings: 0,
-    directions: "", /* array of strings */
+    directions: {}, /* array of strings */
 
   })
-
 
 
   function dataAdapter(obj) { /** mutates object */
@@ -35,24 +36,25 @@ const AddRecipe = ({ countries }) => {
       cooking_time: +obj.cooking_time,
       servings: +obj.servings
     })
-
   }
 
   const submitForm = (e) => {
     e.preventDefault();
     let object = newRecipe;
-    console.log(dataAdapter(object));
     setNewRecipe(dataAdapter(object));
-    console.log(newRecipe);
 
     axios.post('http://localhost:3000/recipes', { ...newRecipe })
-      .then(res => { console.log(res.data) })
+      .then(res => {
+        console.log(res.data);
+        setSuccess(true)
+      })
       .catch((err) => {
         console.log(err);
         setSuccess(false);
         setPopup(true);
       });
-
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     setPopup(true);
 
   }
@@ -61,6 +63,16 @@ const AddRecipe = ({ countries }) => {
     setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
     console.log(newRecipe);
 
+
+  }
+
+  const ingredientHandler = (e) => { /**onBlur event */
+    setNewRecipe({ ...newRecipe, ingredients: ingredientsState });
+
+  }
+
+  const instructionHandler = (e) => { /**onBlur event */
+    setNewRecipe({ ...newRecipe, directions: directionsState });
 
   }
 
@@ -80,29 +92,17 @@ const AddRecipe = ({ countries }) => {
     window.location.reload(true)
   }
 
-  const ingredientHandler = (e) => { /**onChange event */
-    console.log('hearign you');
-    setNewRecipe({ ...newRecipe, "ingredients": e.target.value }); //pass value to form from ingredient component
-    console.log(newRecipe);
 
-  }
-
-  const instructionHandler = (e) => { /**onChange event */
-    console.log('gog something');
-    setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
-    console.log(newRecipe);
-
-  }
 
 
   return (
 
     <div className={classes.addRecipe}>
       <h2>Add a New Recipe</h2>
-      <Form countries={countries} submitHandler={submitForm} resetHandler={discardCheck} onChangeHandler={setFormData} {...newRecipe} instructionHandler={instructionHandler} ingredientHandler={ingredientHandler} /* newRowHandler1={} newRowHandler2={} */ />
+      <Form countries={countries} submitHandler={submitForm} resetHandler={discardCheck} onChangeHandler={setFormData} {...newRecipe} instructionHandler={instructionHandler} ingredientHandler={ingredientHandler} /* newRowHandler1={} newRowHandler2={} */ setIngredientsState={setIngredientsState} ingredientsState={ingredientsState} directionsState={setDirectionsState} directions={directionsState} />
       {popup && success && <Popup closeHandler={closeHandler} />}
       {popup && !success && <FailPopup closeHandler={closeHandler} />}
-      {discardPopup && <DiscardPopup yesHandler={discardChanges} noHandler={() => setDiscardPopup()} />}
+      {discardPopup && <DiscardPopup yesHandler={discardChanges} noHandler={() => setDiscardPopup(false)} />}
     </div>
   );
 };

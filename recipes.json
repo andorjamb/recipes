@@ -1024,13 +1024,76 @@
       "author": "Anna Niletep",
       "country": "American Samoa",
       "description": "chunky",
-      "image": "https://unsplash.com/photos/eEWlcfydzQ4",
+      "image": "https://www.oliviascuisine.com/wp-content/uploads/2021/03/guinness-stew.jpg",
       "ingredients": "",
       "preparation_time": 45,
       "cooking_time": 45,
       "servings": 0,
       "directions": "",
       "id": 16
+    },
+    {
+      "name": "Anti-flea Dip",
+      "author": "Scratchy",
+      "country": "Antigua and Barbuda",
+      "description": "Not good for nits",
+      "image": "",
+      "ingredients": "ounces",
+      "preparation_time": 3,
+      "cooking_time": 0,
+      "servings": 0,
+      "directions": "Mix and apply",
+      "id": 17
+    },
+    {
+      "name": "Milkshake",
+      "author": "Kelis",
+      "country": "Jamaica",
+      "description": "Brings all the boys to the yard",
+      "image": "",
+      "ingredients": "L",
+      "preparation_time": 4,
+      "cooking_time": 0,
+      "servings": 0,
+      "directions": "Blend until smooth",
+      "id": 18
+    },
+    {
+      "name": "Milkshake",
+      "author": "Kelis",
+      "country": "United States of America",
+      "description": "Brings all the boys to the yard",
+      "image": "https://marleysmenu.com/wp-content/uploads/2021/07/Butterscotch-Milkshake-Recipe-Card-Image-500x500.jpg",
+      "ingredients": [
+        {
+          "name": "icecream",
+          "quantity": 1,
+          "unit": "tub"
+        },
+        {
+          "name": "milk",
+          "quantity": 1,
+          "unit": "L"
+        }
+      ],
+      "preparation_time": 4,
+      "cooking_time": 0,
+      "servings": 0,
+      "directions": [],
+      "id": 19
+    },
+    {
+      "name": "",
+      "author": "",
+      "country": "",
+      "description": "",
+      "image": "",
+      "ingredients": [],
+      "preparation_time": 0,
+      "cooking_time": 0,
+      "servings": 0,
+      "directions": {},
+      "id": 20
     }
   ]
 }

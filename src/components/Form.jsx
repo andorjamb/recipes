@@ -4,15 +4,15 @@ import FormIngredient from './FormIngredient';
 import FormInstruction from './FormInstruction';
 
 
-const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredientHandler, instructionHandler, newRowHandler1, newRowHandler2 }) => {
+const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredientHandler, instructionHandler, setIngredientsState, ingredientsState, directionsState, setDirectionsState }) => {
 
     const [ingNumber, setIngNumber] = useState([0]);
     const [insNumber, setInsNumber] = useState([0]);
-    const [ingredientsState, setIngredientsState] = useState([]);
 
     const nameInput = useRef();
     const quantityInput = useRef();
     const unitInput = useRef();
+    const instructionInput = useRef();
 
     class IngredientObject {
         constructor(name, quantity, unit) {
@@ -24,23 +24,37 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
 
     const ingredientRow = (e) => { /** button onClick handler */
         e.preventDefault();
+        console.log(ingredientsState);
         if (nameInput.current.value === undefined || quantityInput.current.value === '' || unitInput.current.value === '') { return null; }
         else {
             let newIngObj = new IngredientObject(nameInput.current.value, quantityInput.current.value, unitInput.current.value);
             setIngredientsState(ingredientsState => [...ingredientsState, newIngObj]);
             setIngNumber([...ingNumber, ingNumber.length]);
-            console.log(ingredientsState);
+
             console.log(nameInput.current.value);
+            setIngredientsState([...ingredientsState, newIngObj]);
+            console.log(ingredientsState);
         }
     }
 
-    useEffect(() => { 
-        
-    }, [ingredientsState])
+    useEffect(() => {
+
+    }, [])
 
     const newInstruction = (e) => {
         e.preventDefault();
-        setInsNumber([...insNumber, insNumber.length]);
+
+        if (nameInput.current.value === undefined || quantityInput.current.value === '') { return null; }
+        else {
+            setInsNumber([...insNumber, insNumber.length]);
+            let newIns = instructionInput.current.value;
+            setIngNumber([...insNumber, insNumber.length]);
+
+            console.log(instructionInput.current.value);
+
+            setDirectionsState([...directionsState, newIns]);
+
+        }
     }
 
 
@@ -48,11 +62,11 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
         <div className="formDiv">
             <form className="form" >
                 <label htmlFor="name">Recipe Name</label>
-                <input type="text" name="name" id="name" onChange={onChangeHandler} />
+                <input type="text" name="name" id="name" onBlur={onChangeHandler} />
                 <label htmlFor="author">Author</label>
-                <input type="text" name="author" id="author" onChange={onChangeHandler} />
+                <input type="text" name="author" id="author" onBlur={onChangeHandler} />
                 <label htmlFor="country">Country &#40;Select from list&#41;</label>
-                <select name="country" onChange={onChangeHandler}>  <option value="choice" defaultValue={'Select a country'}>Select a country</option>
+                <select name="country" onBlur={onChangeHandler}>  <option value="choice" defaultValue={'Select a country'}>Select a country</option>
                     {countries.map((country) => {
                         return <option key={country.name} name={country.name} value={country.name}>{country.name}</option>
                     })}
@@ -65,9 +79,12 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
                 <label htmlFor='image'>ImageURL</label>
                 <input type="url" id='image' name='image' maxLength={200} onChange={onChangeHandler} />
 
-                <div className="block">
-                    <label htmlFor="ingredients">Ingredients {ingNumber.map((i) => <FormIngredient key={i} ref1={nameInput} ref2={quantityInput} ref3={unitInput} ingredientChangeHandler={ingredientHandler} />)}
-                    </label></div>
+
+                <label htmlFor="ingredients">Ingredients</label>
+
+                {ingNumber.map((i) => <FormIngredient key={i} ref1={nameInput} ref2={quantityInput} ref3={unitInput} blurHandler={ingredientHandler} />)}
+
+
 
                 <div className='block'><button onClick={(e) => ingredientRow(e)}>Add more</button></div>
 
@@ -82,10 +99,10 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
                     </div>
                 </div>
 
-                <div>
-                    <label htmlFor="instructions" className="textareaLabel">Instructions
-                        {insNumber.map((i) => <FormInstruction key={i} instructionChangeHandler={instructionHandler} />)}
-                    </label>
+                <div className="block">
+                    <label htmlFor="instructions" className="textareaLabel">Instructions</label>
+                    {insNumber.map((i) => <FormInstruction key={i} instructionChangeHandler={instructionHandler} ref4={instructionInput} />)}
+
                 </div>
 
                 <button onClick={(e) => newInstruction(e)}>Add another step</button>
