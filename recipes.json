@@ -1042,6 +1042,44 @@
       "servings": 0,
       "directions": [],
       "id": 16
+    },
+    {
+      "name": "Anna's Special Stew",
+      "author": "Anna Niletep",
+      "country": "Antarctica",
+      "description": "A chunky meal",
+      "image": "https://www.cookingclassy.com/wp-content/uploads/2021/10/beef-stew-30.jpg",
+      "ingredients": [
+        {
+          "name": "beef",
+          "quantity": 1,
+          "unit": "kilo"
+        },
+        {
+          "name": "carrots",
+          "quantity": 300,
+          "unit": "grams"
+        },
+        {
+          "name": "potatoes",
+          "quantity": 300,
+          "unit": "grams"
+        },
+        {
+          "name": "chicken stock",
+          "quantity": 2,
+          "unit": "litres"
+        }
+      ],
+      "preparation_time": 20,
+      "cooking_time": 120,
+      "servings": 0,
+      "directions": [
+        "Brown the meat and onions and add to the stock",
+        "Peel the vegetables, add to soup",
+        "Simmer for two hours or until tender"
+      ],
+      "id": 17
     }
   ]
 }

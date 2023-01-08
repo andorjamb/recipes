@@ -67,3 +67,4 @@ function adapt(item){
         salary:+item.salary
     });
 }
+https://www.cookingclassy.com/wp-content/uploads/2021/10/beef-stew-30.jpg
