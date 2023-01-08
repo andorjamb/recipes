@@ -10,7 +10,7 @@ const Flag = ({ country }) => {
         axios.get(`https://restcountries.com/v2/name/${country}?fields=flag`)
             .then((res) => setFlagImage(res.data[0].flag))
 
-    }, []);
+    }, [country]);
 
     return (
         <div className={classes.flag}>

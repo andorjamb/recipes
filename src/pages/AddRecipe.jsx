@@ -4,6 +4,7 @@ import axios from 'axios';
 import Form from '../components/Form';
 import Popup from '../components/Popup';
 import DiscardPopup from '../components/DiscardPopup';
+import FailPopup from '../components/FailPopup';
 import classes from './AddRecipe.module.css';
 
 const AddRecipe = ({ countries }) => {
@@ -23,39 +24,26 @@ const AddRecipe = ({ countries }) => {
     "directions": [], /* array of strings */
   })
 
-  /* class newRecipe2 {
-    constructor(name, author, country, description, image, ingredients, preparation_time, cooking_time, servings, directions) {
-      this.name = name;
-      this.author = author;
-      this.country = country;
-      this.description = description;
-      this.image = image;
-      this.ingredients = ingredients;
-      this.preparation_time = preparation_time;
-      this.cooking_time = cooking_time;
-      this.servings = servings;
-      this.directions = directions;
-    }
-  } */
+  const [success, setSuccess] = useState(false);
 
 
   const submitForm = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3000/recipes', { ...newRecipe })
       .then(res => { console.log(res.data) })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setSuccess(false);
+        setPopup(true);
+      });
 
     setPopup(true);
 
   }
 
-  const saveFormData = (e) => {
+  const setFormData = (e) => {
     setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
-    /* let formData = new FormData();
-    formData = newRecipe; */
-
     console.log(newRecipe);
-
 
   }
 
@@ -76,12 +64,28 @@ const AddRecipe = ({ countries }) => {
   }
 
 
+  const instructionHandler = (e) => {
+    console.log('gog something');
+    setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
+    console.log(newRecipe);
+
+  }
+
+  const ingredientHandler = (e) => {
+    console.log('hearign you');
+    setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
+    console.log(newRecipe);
+
+  }
+
+
   return (
 
     <div className={classes.addRecipe}>
       <h2>Add a New Recipe</h2>
-      <Form countries={countries} submitHandler={submitForm} resetHandler={discardCheck} dataHandler={saveFormData} {...newRecipe} />
-      {popup && <Popup closeHandler={closeHandler} />}
+      <Form countries={countries} submitHandler={submitForm} resetHandler={discardCheck} onChangeHandler={setFormData} {...newRecipe} instructionHandler={instructionHandler} ingredientHandler={ingredientHandler} />
+      {popup && success && <Popup closeHandler={closeHandler} />}
+      {popup && !success && <FailPopup closeHandler={closeHandler} />}
       {discardPopup && <DiscardPopup yesHandler={discardChanges} noHandler={() => setDiscardPopup()} />}
     </div>
   );

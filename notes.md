@@ -20,3 +20,25 @@ flags.svg
  - }]
 
  https://restcountries.com/v2/all?fields=name,flags
+
+
+
+ excised from AddRecipes
+
+   /* let formData = new FormData();
+    formData = newRecipe; */
+
+   /* class newRecipe2 {
+    constructor(name, author, country, description, image, ingredients, preparation_time, cooking_time, servings, directions) {
+      this.name = name;
+      this.author = author;
+      this.country = country;
+      this.description = description;
+      this.image = image;
+      this.ingredients = ingredients;
+      this.preparation_time = preparation_time;
+      this.cooking_time = cooking_time;
+      this.servings = servings;
+      this.directions = directions;
+    }
+  } */

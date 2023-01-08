@@ -14,7 +14,7 @@ const RecipeSingle = ({ recipeData }) => {
         setSingleRecipe(recipe);
         setIsLoading(false);
 
-    }, [])
+    }, [recipeName.recipesingle, recipes])
 
     if (isLoading) {
         return <p className={classes.loading}>Loading ....</p>

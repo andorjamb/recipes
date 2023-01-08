@@ -11,9 +11,9 @@ A Reactjs web application.
 
 ## Screenshots from project:
 
-![screenshot](https://github.com/andorjamb/recipes/blob/master/screenshot_recipe_home.png)
+![screenshot](https://github.com/andorjamb/recipes/blob/master/screenshot_recipes_home.png)
 ![screenshot](https://github.com/andorjamb/recipes/blob/master/screenshot_recipes_recipes.png)
-![screenshot](https://github.com/andorjamb/recipes/blob/master/screenshot_recipes_addrecipes.png)
+![screenshot](https://github.com/andorjamb/recipes/blob/master/screenshot_recipes_addrecipe.png)
 
 Media source attributions: 
 Stirfry Video: pixabay (user billialan9216-24764816)
