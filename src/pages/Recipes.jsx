@@ -18,7 +18,7 @@ const Recipes = ({ countries, recipeData }) => {
         <><div className={classes.flexContainer}>
             <h2>Recipes</h2>
             <div className={classes.search}>
-                <div><label htmlFor='searchValue'>Search:</label>
+                <div><label htmlFor='searchValue'></label>
                     <input type="search" name='searchValue' id='searchValue' onChange={
                         (e) => searchFilter(e)} placeholder="search by recipe or country" /></div>
             </div></div>

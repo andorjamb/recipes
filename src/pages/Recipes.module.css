@@ -27,11 +27,14 @@
 
 .search input {
     height: 40px;
+    display: block;
     width: 400px;
     border-radius: 20px;
     border: 1px solid darkgray;
     padding: 0.5rem;
     font-size: 1.1rem;
+    margin: auto;
+    text-align: center;
 
 }
 

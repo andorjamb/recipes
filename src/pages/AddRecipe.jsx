@@ -76,11 +76,14 @@ const AddRecipe = ({ countries }) => {
 
   useEffect(() => {
     setNewRecipe({ ...newRecipe, ingredients: ingredientsState });
-  }, [ingredientsState]);
+  },
+    // eslint-disable-next-line
+    [ingredientsState]);
 
   useEffect(() => {
     setNewRecipe({ ...newRecipe, directions: directionsState });
-  }, [directionsState]);
+  }, // eslint-disable-next-line 
+    [directionsState]);
 
 
   const closeHandler = () => {
@@ -106,8 +109,6 @@ const AddRecipe = ({ countries }) => {
     setDiscardPopup(false);
     window.location.reload(false);
   }
-
-
 
   return (
 

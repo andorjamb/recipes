@@ -31,12 +31,17 @@ h2 {
     text-align: left;
 }
 
+.ingredients {
+    max-width: 340px;
+}
+
 .ingredients td,
 .directions li {
     text-align: left;
     padding: 0.2rem;
 
 }
+
 
 .description h3,
 p {
