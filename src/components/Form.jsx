@@ -25,11 +25,9 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
 
     const ingredientRow = (e) => {
         e.preventDefault();
-        console.log(ingredientsState);
         if (nameInput.current.value === '' || quantityInput.current.value === '' || unitInput.current.value === '') { return null; }
         else {
             let newIngObj = new IngredientObject(nameInput.current.value, quantityInput.current.value, unitInput.current.value);
-            console.log(newIngObj);
             setIngNumber([...ingNumber, ingNumber.length]);
             setIngredientsState([...ingredientsState, newIngObj]);
             ingredientHandler(newIngObj);
@@ -44,11 +42,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
             let newIns = instructionInput.current.value;
             instructionHandler(newIns);
             setInsNumber([...insNumber, insNumber.length]);
-            console.log(e.target.value);
 
-            let tempArray = [];
-            tempArray.push(newIns);
-            console.log('tempArray:', tempArray);
         }
     }
 
@@ -87,11 +81,11 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
                 <section className='flex'>
                     <div>
                         <label htmlFor="preparation_time">Preparation time</label>
-                        <input type="text" placeholder="minutes" name="preparation_time" id="preparation_time" className="inputSmallarea" onChange={onChangeHandler} />
+                        <input type="number" placeholder="minutes" name="preparation_time" id="preparation_time" className="inputSmallarea" onChange={onChangeHandler} />
                     </div>
                     <div>
                         <label htmlFor="cooking_time">Cooking time </label>
-                        <input type="text" placeholder="minutes" name="cooking_time" id="cooking_time" className="inputSmallarea" onChange={onChangeHandler} />
+                        <input type="number" placeholder="minutes" name="cooking_time" id="cooking_time" className="inputSmallarea" onChange={onChangeHandler} />
                     </div>
                     <div>
                         <label htmlFor="servings">Servings</label>

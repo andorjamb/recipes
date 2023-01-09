@@ -5,13 +5,6 @@
     margin: auto;
 }
 
-.addRecipe h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    ;
-
-}
-
 @media screen and (max-width:600px) {
     .addRecipe {
         width: 100vw;

@@ -4,9 +4,6 @@
 :root {
   --app-max-width: 1400px;
   --main-bg-color: rgb(245, 245, 245);
-  --header-bg-color: beige;
-  --footer-bg-color-1: rgb(87, 31, 6);
-  --footer-bg-color-2: rgb(65, 21, 1);
   --black: rgb(29, 32, 46);
   --mediumgold: rgb(250, 121, 118);
   --palegold: rgb(223, 165, 76);
@@ -16,6 +13,7 @@
   --yellow: rgb(218, 183, 62);
   --red: rgb(143, 39, 21);
   --teal: rgb(187, 239, 216);
+  --green: rgb(5, 119, 81);
 
 }
 
@@ -25,6 +23,11 @@
   box-sizing: border-box;
   overscroll-behavior: none;
   scroll-behavior: smooth;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
 }
 
 body {

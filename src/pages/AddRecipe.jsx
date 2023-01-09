@@ -39,7 +39,6 @@ const AddRecipe = ({ countries }) => {
   const submitForm = (e) => {
     e.preventDefault();
     let object = newRecipe;
-    console.log(object);
     setNewRecipe(dataAdapter(object));
 
     axios.post('http://localhost:3000/recipes', { ...newRecipe })

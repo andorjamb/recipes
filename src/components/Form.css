@@ -69,7 +69,8 @@ input[type="url"] {
 
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
     text-align: center;
 }
 
@@ -98,9 +99,18 @@ input[type="text"] {
     background-color: var(--teal);
 
 }
+.form button[type='submit']:active {
+    background-color: var(--green);
+
+}
 
 .form button[type='reset'] {
     background-color: var(--orange);
+
+}
+
+.form button[type='reset']:active {
+    background-color: var(--mediumgold);
 
 }
 

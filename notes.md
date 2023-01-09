@@ -74,3 +74,11 @@ https://www.cookingclassy.com/wp-content/uploads/2021/10/beef-stew-30.jpg
  ```<Link to="/foo/bar/:id" params={{id: encodeURIComponent('hello/world')}} />```
  
  then use decodeURIComponent (this.props.params.id) from the component being referred.
+
+ excised from AddRecipe:
+
+   const ingredientHandler = (formData) => {
+    /* setIngredientsState({ ...ingredientsState, formData });
+    console.log(ingredientsState);
+    console.log(formData); */
+  }
