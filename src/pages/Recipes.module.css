@@ -1,5 +1,4 @@
-.flexContainer {
-    
+.flexContainer { 
     height: 90px;
     width: 100%;
 }
@@ -7,7 +6,6 @@
 .search {
     height: 90px;
     width: 100%;
-
 }
 
 .recipes {
@@ -20,10 +18,8 @@
     margin: auto;
 }
 
-
 .search label {
     padding: 0.5rem 1rem;
-
 
 }
 

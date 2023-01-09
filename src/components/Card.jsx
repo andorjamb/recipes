@@ -11,11 +11,11 @@ const Card = ({ recipeImage, recipeName, recipeCountry, countries }) => {
             <div><img src={recipeImage} alt={recipeName} />
                 <Flag country={recipeCountry} />
             </div>
-            <div><h4>{recipeName}</h4>
-                <Link to={`${recipeName}`}>
-                    <button className={classes.button}>See Recipe</button>
-                </Link>
-            </div>
+            <div><h4>{recipeName}</h4>  </div>
+            <div><Link to={`${recipeName}`}>
+                <button className={classes.button}>See Recipe</button>
+            </Link></div>
+
 
         </div>
     );
