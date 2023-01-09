@@ -26,7 +26,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
     const ingredientRow = (e) => {
         e.preventDefault();
         console.log(ingredientsState);
-        if (nameInput.current.value === undefined || quantityInput.current.value === '' || unitInput.current.value === '') { return null; }
+        if (nameInput.current.value === '' || quantityInput.current.value === '' || unitInput.current.value === '') { return null; }
         else {
             let newIngObj = new IngredientObject(nameInput.current.value, quantityInput.current.value, unitInput.current.value);
             console.log(newIngObj);
@@ -42,8 +42,9 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
         if (instructionInput.current.value === undefined || instructionInput.current.value === '') { return null; }
         else {
             let newIns = instructionInput.current.value;
-            setInsNumber([...insNumber, insNumber.length]);
             instructionHandler(newIns);
+            setInsNumber([...insNumber, insNumber.length]);
+            console.log(e.target.value);
 
             let tempArray = [];
             tempArray.push(newIns);
@@ -78,7 +79,10 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
 
                 {ingNumber.map((i) => <FormIngredient key={i} ref1={nameInput} ref2={quantityInput} ref3={unitInput} blurHandler={ingredientHandler} />)}
 
-                <div className='block'><button onClick={(e) => ingredientRow(e)}>Add more</button></div>
+                <div className='flex'><button onClick={(e) => ingredientRow(e)}>Add more</button>
+                    <p>Or</p>
+                    <button onClick={(e) => ingredientRow(e)}>Done</button>
+                </div>
 
                 <section className='flex'>
                     <div>
@@ -99,11 +103,14 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
                     <label htmlFor="instructions" className="textareaLabel">Instructions</label>
                     {insNumber.map((i) => <FormInstruction key={i} ref4={instructionInput} />)}
                 </div>
-
-                <button onClick={(e) => newInstruction(e)}>Add another step</button>
-
-                <div className='flex'><button type="submit" onClick={submitHandler}>Submit Recipe</button>
-                    <button onClick={resetHandler}>Discard changes</button>
+                <div className='flex'>
+                    <button onClick={(e) => newInstruction(e)}>Add another step</button>
+                    <p>Or</p>
+                    <button onClick={(e) => newInstruction(e)}>Done</button>
+                </div>
+                <div className='flex'>
+                    <button type="submit" onClick={submitHandler}>Submit Recipe</button>
+                    <button type="reset" onClick={resetHandler}>Discard changes</button>
                 </div>
             </form>
         </div>

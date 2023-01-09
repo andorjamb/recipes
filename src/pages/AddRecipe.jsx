@@ -92,6 +92,8 @@ const AddRecipe = ({ countries }) => {
 
   const discardCheck = () => {
     setDiscardPopup(true);
+
+
   }
 
   const discardChanges = (e) => {
@@ -103,6 +105,7 @@ const AddRecipe = ({ countries }) => {
   const keepChanges = (e) => {
     e.preventDefault();
     setDiscardPopup(false);
+    window.location.reload(false);
   }
 
 

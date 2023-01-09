@@ -11,10 +11,8 @@
 
 .flex {
     display: flex;
-    clear: both;
     width: 100%;
     justify-content: space-around;
-
 }
 
 .block {
@@ -93,6 +91,16 @@ input[type="text"] {
     margin: 1rem;
     margin-right: 100px;
     float: right;
+
+}
+
+.form button[type='submit'] {
+    background-color: var(--teal);
+
+}
+
+.form button[type='reset'] {
+    background-color: var(--orange);
 
 }
 
