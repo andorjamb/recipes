@@ -4,7 +4,13 @@
     background-color: var(--main-bg-color);
     padding: 1rem;
     margin: auto;
-    /*   display: flex;
-    justify-content: center; */
+
+}
+
+@media screen and (max-width:600px) {
+    .main {
+        min-height: 100vh;
+    }
+
 
 }

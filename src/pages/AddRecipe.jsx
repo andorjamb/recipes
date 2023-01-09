@@ -7,6 +7,7 @@ import DiscardPopup from '../components/DiscardPopup';
 import FailPopup from '../components/FailPopup';
 import classes from './AddRecipe.module.css';
 
+
 const AddRecipe = ({ countries }) => {
 
   const [popup, setPopup] = useState(false);
@@ -93,15 +94,18 @@ const AddRecipe = ({ countries }) => {
     setDiscardPopup(true);
   }
 
-  const discardChanges = () => {
+  const discardChanges = (e) => {
+    e.preventDefault();
     setDiscardPopup(false);
     window.location.reload(true)
   }
 
-  const keepChanges = () => {
+  const keepChanges = (e) => {
+    e.preventDefault();
     setDiscardPopup(false);
-    window.location.reload(false);
   }
+
+
 
   return (
 
@@ -120,7 +124,7 @@ const AddRecipe = ({ countries }) => {
         directions={directionsState} />
       {popup && success && <Popup closeHandler={closeHandler} />}
       {popup && !success && <FailPopup closeHandler={closeHandler} />}
-      {discardPopup && <DiscardPopup yesHandler={discardChanges} noHandler={keepChanges} />}
+      {discardPopup && <DiscardPopup yesHandler={(e) => discardChanges(e)} noHandler={(e) => keepChanges(e)} />}
     </div>
   );
 };

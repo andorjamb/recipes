@@ -1,8 +1,13 @@
+.flexContainer {
+    
+    height: 90px;
+    width: 100%;
+}
+
 .search {
     height: 90px;
     width: 100%;
-    display: flex;
-    justify-content: center;
+
 }
 
 .recipes {
@@ -18,6 +23,7 @@
 
 .search label {
     padding: 0.5rem 1rem;
+
 
 }
 
@@ -44,10 +50,19 @@
 
 @media screen and (max-width:600px) {
     .recipes {
-        display: flex;
+        margin: auto;
         max-width: 80vw;
         height: auto;
-        margin: auto;
+
+    }
+
+    .search input {
+        height: 40px;
+        width: 80%;
+        border-radius: 20px;
+        border: 1px solid darkgray;
+        padding: 0.5rem;
+        font-size: 1.1rem;
     }
 
 }

@@ -30,11 +30,10 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
         else {
             let newIngObj = new IngredientObject(nameInput.current.value, quantityInput.current.value, unitInput.current.value);
             console.log(newIngObj);
-            //setIngredientsState(ingredientsState => [...ingredientsState, newIngObj]);
             setIngNumber([...ingNumber, ingNumber.length]);
             setIngredientsState([...ingredientsState, newIngObj]);
             ingredientHandler(newIngObj);
-            console.log(ingredientsState);
+
         }
     }
 
@@ -44,7 +43,6 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
         else {
             let newIns = instructionInput.current.value;
             setInsNumber([...insNumber, insNumber.length]);
-            console.log(newIns);
             instructionHandler(newIns);
 
             let tempArray = [];

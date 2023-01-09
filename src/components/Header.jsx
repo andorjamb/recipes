@@ -3,6 +3,8 @@ import Navbar from './Navbar';
 
 
 const Header = () => {
+
+    const modalMenu = ()=>{}
     return (
         <header>
             <Navbar />

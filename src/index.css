@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Coda+Caption&family=Archivo+Black&family=Pattaya&family=Londrina+Solid&family=Londrina+Outline&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 
 :root {
   --app-max-width: 1400px;
@@ -15,7 +16,7 @@
   --yellow: rgb(218, 183, 62);
   --red: rgb(143, 39, 21);
   --teal: rgb(187, 239, 216);
- 
+
 }
 
 * {

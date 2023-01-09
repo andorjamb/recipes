@@ -11,3 +11,10 @@
     ;
 
 }
+
+@media screen and (max-width:600px) {
+    .addRecipe {
+        width: 100vw;
+    }
+
+}

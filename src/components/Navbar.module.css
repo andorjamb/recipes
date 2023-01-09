@@ -7,11 +7,27 @@
 
 }
 
+.nav.responsive ul li a {
+    display: none;
+
+}
+
 .nav ul {
     height: 70px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+nav .menuIcon {
+    display: none;
+    font-family: 'Material Symbols Outlined';
+    font-size: 2.5rem;
+    float: right;
+    line-height: 70px;
+    padding-right: 1.5rem;
+    cursor: pointer;
+
 }
 
 .nav li {
@@ -41,4 +57,27 @@
 
 .nav a:hover {
     color: var(--black);
+}
+
+@media screen and (max-width:600px) {
+
+    .nav {
+        width: 100vw;
+    }
+
+    .nav ul {
+        display: none;
+    }
+
+    .nav .menuIcon {
+        display: block;
+    }
+
+    #menu.responsive ul li a {
+        background-color: rgb(14, 14, 41);
+        display: block;
+        width: 100%;
+        color: white;
+        border-radius: 10px;
+    }
 }

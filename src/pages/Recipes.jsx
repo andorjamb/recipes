@@ -15,13 +15,13 @@ const Recipes = ({ countries, recipeData }) => {
     const recipesFilter = recipes.filter(recipe => recipe.name.toLowerCase().includes(searchValue) || recipe.country.toLowerCase().includes(searchValue));
 
     return (
-        <>
+        <><div className={classes.flexContainer}>
             <div className={classes.search}>
                 <label htmlFor='searchValue'>Search recipes:</label>
                 <input type="search" name='searchValue' id='searchValue' onChange={
                     (e) => searchFilter(e)} placeholder="search by recipe or country" />
-                    </div>
-                    
+            </div></div>
+
             <div className={classes.recipes}>
                 {recipesFilter.map((recipe, i) =>
                     <Card
@@ -29,7 +29,6 @@ const Recipes = ({ countries, recipeData }) => {
                         recipeName={recipe.name}
                         recipeImage={recipe.image}
                         recipeCountry={recipe.country}
-
                         countries={countriesList} />)}
 
             </div>
