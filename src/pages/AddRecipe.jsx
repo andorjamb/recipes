@@ -39,6 +39,15 @@ const AddRecipe = ({ countries }) => {
   const submitForm = (e) => {
     e.preventDefault();
     let object = newRecipe;
+
+    /**form validator */
+    let recipeValues = Object.values(object);
+    for (const i of recipeValues) {
+      if (i === "") {
+        alert('Incomplete form');
+        return null;
+      }
+    }
     setNewRecipe(dataAdapter(object));
 
     axios.post('http://localhost:3000/recipes', { ...newRecipe })
@@ -63,14 +72,11 @@ const AddRecipe = ({ countries }) => {
 
   const ingredientHandler = (formData) => {
     /* setIngredientsState({ ...ingredientsState, formData });
-    console.log(ingredientsState);
-    console.log(formData); */
+    BALCONY */
   }
 
   const instructionHandler = (formData) => {
     setDirectionsState([...directionsState, formData]);
-    console.log(directionsState);
-    console.log(formData);
   }
 
 
@@ -95,7 +101,6 @@ const AddRecipe = ({ countries }) => {
   const discardCheck = () => {
     setDiscardPopup(true);
 
-
   }
 
   const discardChanges = (e) => {
@@ -107,7 +112,8 @@ const AddRecipe = ({ countries }) => {
   const keepChanges = (e) => {
     e.preventDefault();
     setDiscardPopup(false);
-    window.location.reload(false);
+    return false;
+
   }
 
   return (

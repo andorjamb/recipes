@@ -1080,6 +1080,34 @@
         "Simmer for two hours or until tender"
       ],
       "id": 17
+    },
+    {
+      "name": "Smartie Cake",
+      "author": "Alonzo Gonzo",
+      "country": "Aruba",
+      "description": "crunchy and chocolatey",
+      "image": "https://traditionalhomebaking.com/wp-content/uploads/Slice-of-chocolate-Smarties-Cake.jpeg",
+      "ingredients": [
+        {
+          "name": "smarties",
+          "quantity": 1,
+          "unit": "packet"
+        },
+        {
+          "name": "cake batter",
+          "quantity": 1,
+          "unit": "packet"
+        }
+      ],
+      "preparation_time": 30,
+      "cooking_time": 34,
+      "servings": 4,
+      "directions": [
+        "follow cake batter directions",
+        "stir in smarties",
+        "bake in oven"
+      ],
+      "id": 18
     }
   ]
 }

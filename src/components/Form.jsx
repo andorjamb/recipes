@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import './Form.css';
 import FormIngredient from './FormIngredient';
 import FormInstruction from './FormInstruction';
@@ -28,10 +28,10 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
         if (nameInput.current.value === '' || quantityInput.current.value === '' || unitInput.current.value === '') { return null; }
         else {
             let newIngObj = new IngredientObject(nameInput.current.value, quantityInput.current.value, unitInput.current.value);
-            setIngNumber([...ingNumber, ingNumber.length]);
+
             setIngredientsState([...ingredientsState, newIngObj]);
             ingredientHandler(newIngObj);
-
+            if (e.target.name === "more") { setIngNumber([...ingNumber, ingNumber.length]) }
         }
     }
 
@@ -41,8 +41,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
         else {
             let newIns = instructionInput.current.value;
             instructionHandler(newIns);
-            setInsNumber([...insNumber, insNumber.length]);
-
+            if (e.target.name === "step") { setInsNumber([...insNumber, insNumber.length]) }
         }
     }
 
@@ -73,7 +72,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
 
                 {ingNumber.map((i) => <FormIngredient key={i} ref1={nameInput} ref2={quantityInput} ref3={unitInput} blurHandler={ingredientHandler} />)}
 
-                <div className='flex'><button onClick={(e) => ingredientRow(e)}>Add more</button>
+                <div className='flex'><button name="more" onClick={(e) => ingredientRow(e)}>Add more</button>
                     <p>Or</p>
                     <button onClick={(e) => ingredientRow(e)}>Done</button>
                 </div>
@@ -98,7 +97,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
                     {insNumber.map((i) => <FormInstruction key={i} ref4={instructionInput} />)}
                 </div>
                 <div className='flex'>
-                    <button onClick={(e) => newInstruction(e)}>Add another step</button>
+                    <button name="step" onClick={(e) => newInstruction(e)}>Add another step</button>
                     <p>Or</p>
                     <button onClick={(e) => newInstruction(e)}>Done</button>
                 </div>
