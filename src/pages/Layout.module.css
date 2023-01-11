@@ -1,5 +1,8 @@
 .layout {
     max-width: var(--app-max-width);
-    
+
 }
 
+.main {
+    min-height: 80vh;
+}

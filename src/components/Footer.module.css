@@ -1,9 +1,11 @@
 .footer {
     height: 8rem;
     max-width: var(--app-max-width);
-    background: linear-gradient(to top right, var(--mediumgold), var(--palegold));
+    font-size: smaller;
+    background: var(--brown);
+    opacity: 0.8;
     padding: 2rem;
-    color: black;
+    color: white;
     display: flex;
     justify-content: space-between;
 
