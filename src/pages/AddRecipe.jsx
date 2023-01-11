@@ -51,12 +51,10 @@ const AddRecipe = ({ countries }) => {
     setNewRecipe(dataAdapter(object));
 
     axios.post('http://localhost:3000/recipes', { ...newRecipe })
-      .then(res => {
-        console.log(res.data);
+      .then(
         setSuccess(true)
-      })
+      )
       .catch((err) => {
-        console.log(err);
         setSuccess(false);
         setPopup(true);
       });

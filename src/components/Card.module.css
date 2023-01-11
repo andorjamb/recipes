@@ -17,8 +17,8 @@
     width: 50px;
     border-radius: 50%;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
     background-color: gray;
 }
 

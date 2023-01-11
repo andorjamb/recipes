@@ -25,7 +25,6 @@
     box-shadow: 2px 3px 5px var(--black), 2px 3px 9px darkgray;
     padding: 1rem;
     line-height: 1.3rem;
-    margin: 0 20%;
     display: block;
     position: relative;
     overflow: hidden;

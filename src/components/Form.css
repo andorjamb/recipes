@@ -95,12 +95,28 @@ input[type="number"] {
 
 }
 
+.form button:hover {
+    background-color: var(--mediumgold);
+}
+
+
+.form button:active {
+    background-color: var(--palegold);
+}
+
 .form button[type='submit'] {
     background-color: var(--teal);
 
 }
+
+.form button[type='submit']:hover {
+    background-color: var(--green);
+
+}
+
 .form button[type='submit']:active {
     background-color: var(--green);
+    animation: blink 0.8s linear 0 3;
 
 }
 
@@ -109,8 +125,13 @@ input[type="number"] {
 
 }
 
-.form button[type='reset']:active {
+.form button[type='reset']:hover {
     background-color: var(--mediumgold);
+
+}
+
+.form button[type='reset']:active {
+    background-color: var(--palegold);
 
 }
 
@@ -126,6 +147,16 @@ input[type="number"] {
 
 label h4 {
     margin: 1rem 0;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    99% {
+        opacity: 1;
+    }
 }
 
 

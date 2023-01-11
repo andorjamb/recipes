@@ -1108,6 +1108,92 @@
         "bake in oven"
       ],
       "id": 18
+    },
+    {
+      "name": "Sauerkraut",
+      "author": "Helmut Hasselhoff",
+      "country": "Germany",
+      "description": "A traditional German pickled cabbage, usually served as a side to meat dishes.",
+      "image": "https://images.unsplash.com/photo-1531865282928-5c91416b2ed7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80",
+      "ingredients": [
+        {
+          "name": "shredded cabbage",
+          "quantity": 1,
+          "unit": "kilo"
+        },
+        {
+          "name": "salt",
+          "quantity": 1,
+          "unit": "tablespoon"
+        },
+        {
+          "name": "caraway seeds",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "name": "peppercorns",
+          "quantity": 1,
+          "unit": "tsp"
+        }
+      ],
+      "preparation_time": 30,
+      "cooking_time": 0,
+      "servings": 10,
+      "directions": [
+        "Sterilize jar by boiling in a pot",
+        "rub salt into cabbage and add spices",
+        "cover in brine, pressing out air bubbles",
+        "leave to ferment for 5 days"
+      ],
+      "id": 19
+    },
+    {
+      "name": "Milkshake",
+      "author": "Anna Niletep",
+      "country": "Australia",
+      "description": "A frothy and refreshing drink full of dairy goodness",
+      "image": "https://images.unsplash.com/photo-1568901839119-631418a3910d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2749&q=80",
+      "ingredients": [
+        {
+          "name": "vanilla icecream",
+          "quantity": 2,
+          "unit": "scoops"
+        },
+        {
+          "name": "fullcream milk",
+          "quantity": 500,
+          "unit": "ml"
+        },
+        {
+          "name": "caramel sauce",
+          "quantity": 50,
+          "unit": "ml"
+        },
+        {
+          "name": "malt powder",
+          "quantity": 1,
+          "unit": "tablespoon"
+        },
+        {
+          "name": "sprinkles",
+          "quantity": 2,
+          "unit": "teaspoons"
+        },
+        {
+          "name": "whipped cream",
+          "quantity": 0.3,
+          "unit": "cups"
+        }
+      ],
+      "preparation_time": 5,
+      "cooking_time": 9,
+      "servings": 1,
+      "directions": [
+        "Add all ingredients except sprinkles and cream to a blender, process until smooth and foamy",
+        "pour into a serving glass and finish off with whipped cream and sprinkles"
+      ],
+      "id": 20
     }
   ]
 }

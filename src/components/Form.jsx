@@ -32,6 +32,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
             setIngredientsState([...ingredientsState, newIngObj]);
             ingredientHandler(newIngObj);
             if (e.target.name === "more") { setIngNumber([...ingNumber, ingNumber.length]) }
+            else { e.target.disabled = true; }
         }
     }
 
@@ -42,6 +43,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
             let newIns = instructionInput.current.value;
             instructionHandler(newIns);
             if (e.target.name === "step") { setInsNumber([...insNumber, insNumber.length]) }
+            else { e.target.disabled = true; }
         }
     }
 

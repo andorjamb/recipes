@@ -21,7 +21,7 @@
 }
 
 .h1 {
-    font-family: 'Londrina Solid';
+    font-family: 'Londrina Solid', sans-serif;
     color: black;
     opacity: 0.1;
     font-size: 10rem;
@@ -72,8 +72,11 @@
 }
 
 .glassCard a h3:hover {
-    text-decoration: none;
     color: var(--orange);
+}
+
+.glassCard a h3:active {
+    color: var(--palegold);
 }
 
 @keyframes color-me-black {
@@ -155,7 +158,6 @@
         line-height: 1rem;
     }
 
-
     .h1 {
         font-size: 2rem;
     }
@@ -171,7 +173,7 @@
         height: 100%;
         background: linear-gradient(to left, rgba(250, 250, 250, 0.1), rgba(255, 255, 255, 1));
         display: grid;
-        grid-template-rows: 3(auto);
+        grid-template-rows: repeat(3, 1fr);
 
     }
 }

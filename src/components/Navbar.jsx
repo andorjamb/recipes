@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import classes from './Navbar.module.css';
+import './Navbar.css';
 
 const Navbar = () => {
 
@@ -11,11 +11,11 @@ const Navbar = () => {
     }
 
     return (
-        <nav className={classes.nav}>
-            <div className={classes.title}><Link to="/">TasteIT</Link></div>
-            <div className={classes.menuIcon} onClick={modalMenu}>menu</div>
-            <div id="menu">
-                <ul className={menu ? 'classes.responsive' : ''} >
+        <nav className='nav'>
+            <div className='title'><Link to="/">TasteIT</Link></div>
+            <div className='menu'><span className='menuIcon' onClick={modalMenu}>menu</span></div>
+            <div>
+                <ul className={menu ? 'responsive' : null} >
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/recipes">Recipes</NavLink></li>
                     <li><NavLink to="/addrecipe">Add Recipe</NavLink></li>
