@@ -6,7 +6,7 @@ const Recipes = ({ countries, recipeData }) => {
 
     const [recipes] = useState(recipeData);
     const [searchValue, setSearchValue] = useState('');
-    const countriesList = countries;
+
 
     function searchFilter(e) {
         setSearchValue(e.target.value.toLowerCase());
@@ -28,9 +28,10 @@ const Recipes = ({ countries, recipeData }) => {
                     <Card
                         key={i}
                         recipeName={recipe.name}
+                        recipeId={recipe.id}
                         recipeImage={recipe.image}
                         recipeCountry={recipe.country}
-                        countries={countriesList} />)}
+                    />)}
 
             </div>
         </>

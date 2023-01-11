@@ -3,18 +3,18 @@ import { useParams } from 'react-router-dom';
 import classes from './RecipeSingle.module.css';
 
 const RecipeSingle = ({ recipeData }) => {
-    const recipeName = useParams();
+    const recipeId = useParams();
     const [recipes] = useState(recipeData);
     const [singleRecipe, setSingleRecipe] = useState(undefined);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
-        const recipe = recipes.filter(recipe => recipe.name === recipeName.recipesingle);
+        const recipe = recipes.filter(recipe => recipe.id.toString() === recipeId.recipesingle);
         setSingleRecipe(recipe);
         setIsLoading(false);
 
-    }, [recipeName.recipesingle, recipes])
+    }, [recipeId.recipesingle, recipes])
 
     if (isLoading) {
         return <p className={classes.loading}>Loading ....</p>
@@ -27,7 +27,7 @@ const RecipeSingle = ({ recipeData }) => {
                 <p className={classes.slim}>Origin: {singleRecipe[0].country} </p>
                 <div className={classes.description}><h3>Description</h3>
                     <p>{singleRecipe[0].description}</p></div>
-                <img src={singleRecipe[0].image} alt="delicious meal" />
+                <img src={singleRecipe[0].image} alt={singleRecipe[0].name} />
                 <p>Preparation time: {singleRecipe[0].preparation_time} minutes</p>
                 <p>Cooking time: {singleRecipe[0].cooking_time} minutes</p>
                 <p>Servings: {singleRecipe[0].servings}</p>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Flag from './Flag';
 import classes from './Card.module.css';
 
-const Card = ({ recipeImage, recipeName, recipeCountry, countries }) => {
+const Card = ({ recipeImage, recipeName, recipeCountry, recipeId }) => {
 
     return (
         <div className={classes.card} key={recipeName}>
@@ -12,7 +12,7 @@ const Card = ({ recipeImage, recipeName, recipeCountry, countries }) => {
                 <Flag country={recipeCountry} />
             </div>
             <div><h4>{recipeName}</h4>  </div>
-            <div><Link to={`${recipeName}`}>
+            <div><Link to={`${recipeId}`}>
                 <button className={classes.button}>See Recipe</button>
             </Link></div>
 
