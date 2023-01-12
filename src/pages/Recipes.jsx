@@ -13,6 +13,7 @@ const Recipes = ({ countries, recipeData }) => {
     }
 
     const recipesFilter = recipes.filter(recipe => recipe.name.toLowerCase().includes(searchValue) || recipe.country.toLowerCase().includes(searchValue));
+  
 
     return (
         <><div className={classes.flexContainer}>
@@ -31,6 +32,7 @@ const Recipes = ({ countries, recipeData }) => {
                         recipeId={recipe.id}
                         recipeImage={recipe.image}
                         recipeCountry={recipe.country}
+                        countries={countries}
                     />)}
 
             </div>

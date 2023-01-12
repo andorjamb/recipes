@@ -1194,6 +1194,32 @@
         "pour into a serving glass and finish off with whipped cream and sprinkles"
       ],
       "id": 20
+    },
+    {
+      "name": "pancakes",
+      "author": "Me",
+      "country": "Albania",
+      "description": "Yummy",
+      "image": "https://www.cookingclassy.com/wp-content/uploads/2021/10/beef-stew-30.jpg",
+      "ingredients": [
+        {
+          "name": "flour",
+          "quantity": 1,
+          "unit": "cup"
+        },
+        {
+          "name": "eggs",
+          "quantity": 2,
+          "unit": "whole"
+        }
+      ],
+      "preparation_time": 10,
+      "cooking_time": 10,
+      "servings": 2,
+      "directions": [
+        "cook it dammit"
+      ],
+      "id": 21
     }
   ]
 }
