@@ -82,6 +82,10 @@ nav .menuIcon:active {
         display: inline-block;
     }
 
+    .nav ul {
+        display: none;
+    }
+
     .nav ul.responsive {
         background: linear-gradient(to right top, rgba(255, 255, 255, 1), rgba(215, 215, 215, 0.9));
         box-shadow: 2px 3px 5px var(--brown);
