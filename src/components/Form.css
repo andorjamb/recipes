@@ -135,6 +135,20 @@ input[type="number"] {
 
 }
 
+fieldset {
+    border: none;
+}
+
+legend {
+    font-weight: bold;
+}
+
+.remove {
+    max-width: 50px;
+    height: 40px;
+    font-weight: 600;
+}
+
 .directionInput {
     float: right;
     min-height: 50px;

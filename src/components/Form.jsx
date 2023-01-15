@@ -4,7 +4,7 @@ import FormIngredient from './FormIngredient';
 import FormInstruction from './FormInstruction';
 
 
-const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredientHandler, instructionHandler, setIngredientsState, ingredientsState, directionsState }) => {
+const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, setIngredientsState, ingredientsState, directionsState }) => {
 
     const [ingNumber, setIngNumber] = useState([0]);
     const [insNumber, setInsNumber] = useState([0]);
@@ -12,6 +12,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
     const nameInput = useRef();
     const quantityInput = useRef();
     const unitInput = useRef();
+    const thisRow = useRef();
 
     const instructionInput = useRef();
 
@@ -30,7 +31,6 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
             let newIngObj = new IngredientObject(nameInput.current.value, quantityInput.current.value, unitInput.current.value);
 
             setIngredientsState([...ingredientsState, newIngObj]);
-            ingredientHandler(newIngObj);
             if (e.target.name === "more") { setIngNumber([...ingNumber, ingNumber.length]) }
             else { e.target.disabled = true; }
         }
@@ -46,6 +46,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
             else { e.target.disabled = true; }
         }
     }
+
 
 
     return (
@@ -70,9 +71,9 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
                 <input type="url" id='image' name='image' maxLength={200} onBlur={onChangeHandler} />
 
 
-                <label htmlFor="ingredients"><h4>Ingredients</h4></label>
+                <label htmlFor="ingredients"><legend>Ingredients</legend></label>
 
-                {ingNumber.map((i) => <FormIngredient key={i} ref1={nameInput} ref2={quantityInput} ref3={unitInput} blurHandler={ingredientHandler} />)}
+                {ingNumber.map((i) => <FormIngredient key={i} ref1={nameInput} ref2={quantityInput} ref3={unitInput} />)}
 
                 <div className='flex'><button name="more" onClick={(e) => ingredientRow(e)}>Add more</button>
                     <p>Or</p>
@@ -105,7 +106,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
                 </div>
                 <div className='flex'>
                     <button type="submit" onClick={submitHandler}>Submit Recipe</button>
-                    <button type="reset" onClick={resetHandler}>Discard changes</button>
+                    <button type="button" onClick={resetHandler}>Discard changes</button>
                 </div>
             </form>
         </div>

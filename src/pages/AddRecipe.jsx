@@ -68,15 +68,9 @@ const AddRecipe = ({ countries }) => {
     setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
   }
 
-  const ingredientHandler = (formData) => {
-    /* setIngredientsState({ ...ingredientsState, formData });
-    BALCONY */
-  }
-
   const instructionHandler = (formData) => {
     setDirectionsState([...directionsState, formData]);
   }
-
 
   useEffect(() => {
     setNewRecipe({ ...newRecipe, ingredients: ingredientsState });
@@ -124,7 +118,6 @@ const AddRecipe = ({ countries }) => {
         resetHandler={discardCheck}
         onChangeHandler={setFormData} {...newRecipe}
         instructionHandler={instructionHandler}
-        ingredientHandler={ingredientHandler}
         setIngredientsState={setIngredientsState}
         ingredientsState={ingredientsState}
         directionsState={setDirectionsState}

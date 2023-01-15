@@ -1194,6 +1194,87 @@
         "pour into a serving glass and finish off with whipped cream and sprinkles"
       ],
       "id": 20
+    },
+    {
+      "name": "Basic Cake",
+      "author": "Sian Butters",
+      "country": "Canada",
+      "description": "A plain cake",
+      "image": "https://media.houseandgarden.co.uk/photos/61893f4cb028fc86ce48802d/1:1/pass/undefined",
+      "ingredients": [
+        {
+          "name": "sugar",
+          "quantity": 2.5,
+          "unit": "cups"
+        },
+        {
+          "name": "flour",
+          "quantity": 3,
+          "unit": "cups"
+        },
+        {
+          "name": "eggs",
+          "quantity": 2,
+          "unit": "whole"
+        },
+        {
+          "name": "salt",
+          "quantity": 0.5,
+          "unit": "teaspoon"
+        },
+        {
+          "name": "oil",
+          "quantity": 0.5,
+          "unit": "cups"
+        }
+      ],
+      "preparation_time": 20,
+      "cooking_time": 40,
+      "servings": 6,
+      "directions": [
+        "Beat sugar and eggs, add oil, and beat",
+        "sift in flour and salt",
+        "pour into a greased tin and bake at 170 degrees"
+      ],
+      "id": 21
+    },
+    {
+      "name": "Halva",
+      "author": "Tugba Yilmaz",
+      "country": "Turkey",
+      "description": "A simple but indulgent traditional Middle Eastern sweet, made from sesame paste.",
+      "image": "https://thematbakh.com/wp-content/uploads/2021/07/Tahini-Halva-Easy-_-Homemade-square.jpg",
+      "ingredients": [
+        {
+          "name": "sugar",
+          "quantity": 2,
+          "unit": "cups"
+        },
+        {
+          "name": "lemon zest",
+          "quantity": 20,
+          "unit": "grams"
+        },
+        {
+          "name": "tahini",
+          "quantity": 1.5,
+          "unit": "cups"
+        },
+        {
+          "name": "vanilla pod",
+          "quantity": 1,
+          "unit": "whole"
+        }
+      ],
+      "preparation_time": 20,
+      "cooking_time": 20,
+      "servings": 14,
+      "directions": [
+        "Simmer the sugar with half a cup of water until it forms a syrup. Add the lemon zest and a pinch of salt.",
+        "Scrape the vanilla into the tahini, beat in a stand mixer. Slowly add the sugar syrup and combine. Don't overmix.",
+        "Smooth the mixture into a pan and allow to cool."
+      ],
+      "id": 22
     }
   ]
 }
