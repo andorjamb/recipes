@@ -64,12 +64,16 @@ const AddRecipe = ({ countries }) => {
 
   }
 
-  const setFormData = (e) => {
+  const handleFormData = (e) => {
     setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
   }
 
   const instructionHandler = (formData) => {
     setDirectionsState([...directionsState, formData]);
+  }
+
+  const ingredientHandler = (formData) => {
+    setIngredientsState([...ingredientsState, formData]);
   }
 
   useEffect(() => {
@@ -116,12 +120,13 @@ const AddRecipe = ({ countries }) => {
         countries={countries}
         submitHandler={submitForm}
         resetHandler={discardCheck}
-        onChangeHandler={setFormData} {...newRecipe}
+        onChangeHandler={handleFormData} {...newRecipe}
         instructionHandler={instructionHandler}
-        setIngredientsState={setIngredientsState}
+        ingredientHandler={ingredientHandler}
         ingredientsState={ingredientsState}
-        directionsState={setDirectionsState}
-        directions={directionsState} />
+        directions={directionsState}
+        setIngredientsState={setIngredientsState}
+        directionsState={setDirectionsState} />
       {popup && success && <Popup closeHandler={closeHandler} />}
       {popup && !success && <FailPopup closeHandler={closeHandler} />}
       {discardPopup && <DiscardPopup yesHandler={(e) => discardChanges(e)} noHandler={(e) => keepChanges(e)} />}

@@ -34,21 +34,25 @@ function App() {
 
   }, []);
 
+  useEffect(() => {
+
+  }, [error])
+
 
 
   return (
     <div className="App">
       <BrowserRouter>
-        {error ? <p>Error fetching application data</p> :
-          <Routes>
-            <Route path='/' element={<Layout />}>
+        {/*   {error ? <p>Error fetching application data</p> : */}
+        <Routes>
+          <Route path='/' element={<Layout />}>
 
-              <Route index element={<Home />} />
-              <Route path='/recipes' element={<Recipes countries={countries} recipeData={recipeData} />}></Route>
-              <Route path='/recipes/:recipesingle' element={<RecipeSingle recipeData={recipeData} />}></Route>
-              <Route path='/addrecipe' element={<AddRecipe countries={countries} />}></Route>
-              <Route path='*' element={<NotFound />}></Route>
-            </Route></Routes>} </BrowserRouter>
+            <Route index element={<Home />} />
+            <Route path='/recipes' element={<Recipes countries={countries} recipeData={recipeData} />}></Route>
+            <Route path='/recipes/:recipesingle' element={<RecipeSingle recipeData={recipeData} />}></Route>
+            <Route path='/addrecipe' element={<AddRecipe countries={countries} />}></Route>
+            <Route path='*' element={<NotFound />}></Route>
+          </Route></Routes> </BrowserRouter>
 
     </div>
   );

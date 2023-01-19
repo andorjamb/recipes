@@ -116,21 +116,20 @@ input[type="number"] {
 
 .form button[type='submit']:active {
     background-color: var(--green);
-    animation: blink 0.8s linear 0 3;
 
 }
 
-.form button[type='reset'] {
+.form button.discard {
     background-color: var(--orange);
 
 }
 
-.form button[type='reset']:hover {
+.form button.discard:hover {
     background-color: var(--mediumgold);
 
 }
 
-.form button[type='reset']:active {
+.form button.discard:active {
     background-color: var(--palegold);
 
 }
@@ -162,17 +161,6 @@ legend {
 label h4 {
     margin: 1rem 0;
 }
-
-@keyframes blink {
-    0% {
-        opacity: 0;
-    }
-
-    99% {
-        opacity: 1;
-    }
-}
-
 
 @media screen and (max-width: 600px) {
     .form {
