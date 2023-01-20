@@ -1280,7 +1280,7 @@
       "name": "Pirate Stew",
       "author": "Scaley Beard",
       "country": "Bermuda",
-      "description": "Arrr",
+      "description": "Arrr, a heartey brew, t'be sure",
       "image": "https://www.cookingclassy.com/wp-content/uploads/2021/10/beef-stew-30.jpg",
       "ingredients": [
         {
@@ -1307,38 +1307,38 @@
       "id": 23
     },
     {
-      "name": "aosidnfjnslkjadn",
-      "author": "sdfasdfa",
-      "country": "Morocco",
-      "description": "adasdfasdf",
-      "image": "https://thematbakh.com/wp-content/uploads/2021/07/Tahini-Halva-Easy-_-Homemade-square.jpg",
+      "name": "Shortcrust Pastry",
+      "author": "Anna Niletep",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "description": "Basic savoury shortcrust for use with pies. ",
+      "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/shortcrustpastry_1278_16x9.jpg",
       "ingredients": [
         {
-          "name": "asdfasdf",
-          "quantity": "3",
-          "unit": "uy",
+          "name": "butter",
+          "quantity": "2",
+          "unit": "tbs",
           "key": 0
         },
         {
-          "name": "sdvfs",
+          "name": "flour",
           "quantity": "3",
-          "unit": "gf s",
+          "unit": "tbs",
           "key": 0
         },
         {
-          "name": "oijokn",
-          "quantity": "6",
-          "unit": "erwe",
+          "name": "water",
+          "quantity": "1",
+          "unit": "tsp",
           "key": 0
         }
       ],
-      "preparation_time": 60,
-      "cooking_time": 30,
-      "servings": 5,
+      "preparation_time": 0,
+      "cooking_time": 0,
+      "servings": 0,
       "directions": [
-        "fadnvoakmsdlcamldsc",
-        "ni5tomvecwd,löxdk",
-        "bghvfijncsdmkoas,lkmj"
+        "combine flour and butter",
+        "knead together, add water to bind",
+        "chill until needed"
       ],
       "id": 24
     }

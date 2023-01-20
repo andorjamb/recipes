@@ -10,16 +10,11 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
     const [currentIngRow, setCurrentIngRow] = useState({
         name: '',
         quantity: 0,
-        unit: '',
-        key: 0
+        unit: ''
     });
 
     const more = useRef();
     const step = useRef();
-
-    const nameInput = useRef();
-    const quantityInput = useRef();
-    const unitInput = useRef();
 
     const instructionInput = useRef();
 
@@ -28,32 +23,39 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
         ingredientHandler(e.detail);
     })
 
-    let postEvent = new CustomEvent("postMe", { detail: currentIngRow });
-
-
     const ingredientEventHandler = (e) => {
         setCurrentIngRow({ ...currentIngRow, [e.target.name]: e.target.value });
-
     }
+
+    let postEvent = new CustomEvent("postMe", { detail: currentIngRow });
 
     const ingredientRow = (e) => {
         e.preventDefault();
-        if (nameInput.current.value === '' || quantityInput.current.value === '' || unitInput.current.value === '') {
-            alert("Some fields are missing data");
-            return null;
+        let ingredientValues = Object.values(currentIngRow);
+        for (const i of ingredientValues) {
+            if (i === "" || i === null || i === undefined) {
+                alert('Some fields are missing data, please complete them before adding another row');
+                return null;
+            }
+        }
+
+        postEventTarget.dispatchEvent(postEvent);
+
+        if (e.target.name === "more") {
+            setIngNumber([...ingNumber, ingNumber.length]);
         }
         else {
-            if (e.target.name === "more") {
-                setIngNumber([...ingNumber, ingNumber.length]);
-                postEventTarget.dispatchEvent(postEvent);
-            }
-            else {
-                postEventTarget.dispatchEvent(postEvent);
-                e.target.disabled = true;
-                more.current.disabled = true;
-
-            }
+            e.target.disabled = true;
+            more.current.disabled = true;
         }
+    }
+
+    const deleteRow = (i) => {
+        if (ingNumber.length === 1) {
+            return null;
+        }
+        const ingredientsList = ingredientsState.filter((item) => item.key !== i);
+        ingredientHandler(ingredientsList);
     }
 
     const newInstruction = (e) => {
@@ -69,7 +71,6 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
             }
         }
     }
-
 
     return (
         <div className="formDiv">
@@ -94,9 +95,14 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
 
                 <legend>Ingredients</legend>
 
-                {ingNumber.map((i) => <FormIngredient key={i} ref1={nameInput} ref2={quantityInput} ref3={unitInput} eventHandler={(e) => ingredientEventHandler(e)} />)}
-
-                <div className='flex'><button type="button" name="more" ref={more} onClick={(e) => ingredientRow(e)}>Add more</button>
+                {ingNumber.map((i) =>
+                    <FormIngredient
+                        key={i}
+                        deleteHandler={() => deleteRow(i)}  //removeCard={() => props.removeAnimal(animal.name)}
+                        eventHandler={(e) => ingredientEventHandler(e)}
+                    />)}
+                <div className='flex'>
+                    <button type="button" name="more" ref={more} onClick={(e) => ingredientRow(e)}>Make row</button>
                     <p>Or</p>
                     <button type="button" onClick={(e) => ingredientRow(e)}>Done</button>
                 </div>
@@ -104,21 +110,23 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
                 <section className='flex'>
                     <div>
                         <label htmlFor="preparation_time">Preparation time</label>
-                        <input type="number" placeholder="minutes" name="preparation_time" id="preparation_time" className="inputSmallarea" onChange={onChangeHandler} />
+                        <input type="number" min="0" placeholder="minutes" name="preparation_time" id="preparation_time" className="inputSmallarea" onChange={onChangeHandler} />
                     </div>
                     <div>
                         <label htmlFor="cooking_time">Cooking time </label>
-                        <input type="number" placeholder="minutes" name="cooking_time" id="cooking_time" className="inputSmallarea" onChange={onChangeHandler} />
+                        <input type="number" placeholder="minutes" min="0" name="cooking_time" id="cooking_time" className="inputSmallarea" onChange={onChangeHandler} />
                     </div>
                     <div>
                         <label htmlFor="servings">Servings</label>
-                        <input type="number" name="servings" id="servings" onChange={onChangeHandler} className="inputSmallarea"></input>
+                        <input type="number" min="0" name="servings" id="servings" onChange={onChangeHandler} className="inputSmallarea"></input>
                     </div>
                 </section>
 
                 <div className="block">
                     <label htmlFor="instructions" className="textareaLabel">Instructions</label>
-                    {insNumber.map((i) => <FormInstruction key={i} ref4={instructionInput} />)}
+
+                    {insNumber.map((i) =>
+                        <FormInstruction key={i} ref4={instructionInput} />)}
                 </div>
                 <div className='flex'>
                     <button name="step" ref={step} onClick={(e) => newInstruction(e)}>Add another step</button>

@@ -74,6 +74,7 @@ const AddRecipe = ({ countries }) => {
 
   const ingredientHandler = (formData) => {
     setIngredientsState([...ingredientsState, formData]);
+    console.log(ingredientsState);
   }
 
   useEffect(() => {
@@ -96,7 +97,6 @@ const AddRecipe = ({ countries }) => {
 
   const discardCheck = () => {
     setDiscardPopup(true);
-
   }
 
   const discardChanges = (e) => {
@@ -109,7 +109,6 @@ const AddRecipe = ({ countries }) => {
     e.preventDefault();
     setDiscardPopup(false);
     return false;
-
   }
 
   return (
@@ -129,7 +128,9 @@ const AddRecipe = ({ countries }) => {
         directionsState={setDirectionsState} />
       {popup && success && <Popup closeHandler={closeHandler} />}
       {popup && !success && <FailPopup closeHandler={closeHandler} />}
-      {discardPopup && <DiscardPopup yesHandler={(e) => discardChanges(e)} noHandler={(e) => keepChanges(e)} />}
+      {discardPopup && <DiscardPopup
+        yesHandler={(e) => discardChanges(e)}
+        noHandler={(e) => keepChanges(e)} />}
     </div>
   );
 };
