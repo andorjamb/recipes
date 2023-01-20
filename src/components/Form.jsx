@@ -73,7 +73,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
 
     return (
         <div className="formDiv">
-            <form className="form" >
+            <form className="form">
                 <label htmlFor="name">Recipe Name</label>
                 <input type="text" name="name" id="name" onBlur={onChangeHandler} />
                 <label htmlFor="author">Author</label>
@@ -96,9 +96,8 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
 
                 {ingNumber.map((i) => <FormIngredient key={i} ref1={nameInput} ref2={quantityInput} ref3={unitInput} eventHandler={(e) => ingredientEventHandler(e)} />)}
 
-                <div className='flex'><button type="button" name="more" ref={more} onClick={(e) => ingredientRow(e)}>Add more</button>
-                    <p>Or</p>
-                    <button type="button" onClick={(e) => ingredientRow(e)}>Done</button>
+                <div className='squash'><button type="button" name="more" ref={more} onClick={(e) => ingredientRow(e)}>Add more</button>
+                    <button type="button" onClick={(e) => ingredientRow(e)}>No more? Press Me!</button>
                 </div>
 
                 <section className='flex'>
@@ -120,10 +119,10 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
                     <label htmlFor="instructions" className="textareaLabel">Instructions</label>
                     {insNumber.map((i) => <FormInstruction key={i} ref4={instructionInput} />)}
                 </div>
-                <div className='flex'>
+                <div className='squash'>
                     <button name="step" ref={step} onClick={(e) => newInstruction(e)}>Add another step</button>
-                    <p>Or</p>
-                    <button onClick={(e) => newInstruction(e)}>Done</button>
+                    <button onClick={(e) => newInstruction(e)}>No more? Press me!</button>
+
                 </div>
                 <div className='flex'>
                     <button type="submit" onClick={submitHandler}>Submit Recipe</button>

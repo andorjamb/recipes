@@ -6,13 +6,24 @@
     border-radius: 10px;
     padding: 1rem;
 
-
 }
 
 .flex {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+.squash {
+    display: flex;
+    justify-content: left;
+    width: 60%;
+    float: right;
+}
+
+.squash button {
+    height: 50px;
+    width: 190px;
 }
 
 .block {
@@ -82,17 +93,14 @@ input[type="number"] {
 .form button {
     clear: both;
     border-radius: 10px;
-    height: 35px;
-    min-width: 150px;
+    height: 40px;
+    width: 200px;
     font-size: 1rem;
     padding: 0 0.4rem;
     border: none;
     box-shadow: 1px 1px 1px darkgray;
     font-weight: 600;
     margin: 1rem;
-    margin-right: 100px;
-    float: right;
-
 }
 
 .form button:hover {
