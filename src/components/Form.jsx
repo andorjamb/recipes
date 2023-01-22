@@ -1,18 +1,11 @@
 import React, { useState, useRef } from 'react';
 import './Form.css';
-import FormIngredient from './FormIngredient';
-import FormInstruction from './FormInstruction';
 
-const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, ingredientHandler, ingredientsState, directionsState }) => {
+const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, ingredientEventHandler }) => {
 
     const [ingNumber, setIngNumber] = useState([0]);
     const [insNumber, setInsNumber] = useState([0]);
-    const [currentIngRow, setCurrentIngRow] = useState({
-        name: '',
-        quantity: 0,
-        unit: '',
-        key: 0
-    });
+    const [currentIngRow, setCurrentIngRow] = useState([]);
 
     const more = useRef();
     const step = useRef();
@@ -22,18 +15,26 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
     const unitInput = useRef();
 
     const instructionInput = useRef();
+    /*
+        let postEventTarget = new EventTarget();
+    
+        postEventTarget.addEventListener('postMe', (e) => {
+            ingredientHandler(e.detail);
+        })
+    
+        let postEvent = new CustomEvent("postMe", { detail: currentIngRow }); */
 
-    let postEventTarget = new EventTarget();
-    postEventTarget.addEventListener('postMe', (e) => {
-        ingredientHandler(e.detail);
-    })
 
-    let postEvent = new CustomEvent("postMe", { detail: currentIngRow });
+    /*   const ingredientEventHandler = (e) => {
+          setCurrentIngRow({ [e.target.name]: e.target.value });
+          console.log(currentIngRow);
+          ingredientHandler(currentIngRow);
+          //postEventTarget.dispatchEvent(postEvent);
+      } */
 
-
-    const ingredientEventHandler = (e) => {
-        setCurrentIngRow({ ...currentIngRow, [e.target.name]: e.target.value });
-
+    const instructionChangeHandler = () => {
+        let newIns = instructionInput.current.value;
+        instructionHandler(newIns);
     }
 
     const ingredientRow = (e) => {
@@ -43,41 +44,28 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
             return null;
         }
         else {
-            if (e.target.name === "more") {
-                setIngNumber([...ingNumber, ingNumber.length]);
-                postEventTarget.dispatchEvent(postEvent);
-            }
-            else {
-                postEventTarget.dispatchEvent(postEvent);
-                e.target.disabled = true;
-                more.current.disabled = true;
-
-            }
+            setIngNumber([...ingNumber, ingNumber.length]);
         }
     }
 
     const newInstruction = (e) => {
         e.preventDefault();
-        if (instructionInput.current.value === undefined || instructionInput.current.value === '') { return null; }
+        if (instructionInput.current.value === undefined || instructionInput.current.value === '') {
+            return null;
+        }
         else {
-            let newIns = instructionInput.current.value;
-            instructionHandler(newIns);
-            if (e.target.name === "step") { setInsNumber([...insNumber, insNumber.length]) }
-            else {
-                e.target.disabled = true;
-                step.current.disabled = true;
-            }
+
+            setInsNumber([...insNumber, insNumber.length])
         }
     }
-
 
     return (
         <div className="formDiv">
             <form className="form" >
                 <label htmlFor="name">Recipe Name</label>
-                <input type="text" name="name" id="name" onBlur={onChangeHandler} />
+                <input type="text" name="name" id="name" onChange={onChangeHandler} />
                 <label htmlFor="author">Author</label>
-                <input type="text" name="author" id="author" onBlur={onChangeHandler} />
+                <input type="text" name="author" id="author" onChange={onChangeHandler} />
                 <label htmlFor="country">Country &#40;Select from list&#41;</label>
                 <select name="country" onChange={onChangeHandler}>  <option value="choice" defaultValue={'Select a country'}>Select a country</option>
                     {countries.map((country) => {
@@ -90,15 +78,27 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
                 <textarea maxLength={400} name="description" id="description" onChange={onChangeHandler} />
 
                 <label htmlFor='image'>ImageURL</label>
-                <input type="url" id='image' name='image' maxLength={200} onBlur={onChangeHandler} />
+                <input type="url" id='image' name='image' maxLength={200} onChange={onChangeHandler} />
 
                 <legend>Ingredients</legend>
 
-                {ingNumber.map((i) => <FormIngredient key={i} ref1={nameInput} ref2={quantityInput} ref3={unitInput} eventHandler={(e) => ingredientEventHandler(e)} />)}
+                {ingNumber.map((number, index) =>
+                    <fieldset className="flex" name="ingredients" key={index} onBlur={ingredientEventHandler}>
+                        <div>
+                            <label htmlFor="name">Ingredient</label>
+                            <input className="ingredient" type="text" name="name" id="name" ref={nameInput} />
+                        </div>
+                        <div><label htmlFor="quantity">Quantity </label>
+                            <input type="number" name="quantity" id="quantity" ref={quantityInput} className="inputSmallarea" />
+                        </div>
+                        <div>
+                            <label htmlFor="unit">Unit </label>
+                            <input type="text" name="unit" id="unit" className="inputSmallarea" ref={unitInput} />
+                        </div>
+
+                    </fieldset>)}
 
                 <div className='flex'><button type="button" name="more" ref={more} onClick={(e) => ingredientRow(e)}>Add more</button>
-                    <p>Or</p>
-                    <button type="button" onClick={(e) => ingredientRow(e)}>Done</button>
                 </div>
 
                 <section className='flex'>
@@ -112,19 +112,25 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
                     </div>
                     <div>
                         <label htmlFor="servings">Servings</label>
-                        <input type="number" name="servings" id="servings" onChange={onChangeHandler} className="inputSmallarea"></input>
+                        <input type="number" name="servings" id="servings" className="inputSmallarea" onChange={onChangeHandler}></input>
                     </div>
                 </section>
 
                 <div className="block">
+
                     <label htmlFor="instructions" className="textareaLabel">Instructions</label>
-                    {insNumber.map((i) => <FormInstruction key={i} ref4={instructionInput} />)}
+
+                    {insNumber.map((number, index) => (<div key={index} ><textarea className="instructionInput" id="instruction" name="directions" maxLength={300} onBlur={instructionChangeHandler} ref={instructionInput} />
+                    </div>)
+                    )}
+
+
                 </div>
                 <div className='flex'>
                     <button name="step" ref={step} onClick={(e) => newInstruction(e)}>Add another step</button>
-                    <p>Or</p>
-                    <button onClick={(e) => newInstruction(e)}>Done</button>
                 </div>
+
+
                 <div className='flex'>
                     <button type="submit" onClick={submitHandler}>Submit Recipe</button>
                     <button type="button" className="discard" onClick={resetHandler}>Discard changes</button>

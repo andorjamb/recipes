@@ -43,10 +43,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/*   {error ? <p>Error fetching application data</p> : */}
         <Routes>
           <Route path='/' element={<Layout />}>
-
             <Route index element={<Home />} />
             <Route path='/recipes' element={<Recipes countries={countries} recipeData={recipeData} />}></Route>
             <Route path='/recipes/:recipesingle' element={<RecipeSingle recipeData={recipeData} />}></Route>
