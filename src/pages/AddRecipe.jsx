@@ -7,17 +7,16 @@ import DiscardPopup from '../components/DiscardPopup';
 import FailPopup from '../components/FailPopup';
 import classes from './AddRecipe.module.css';
 
-
 const AddRecipe = ({ countries }) => {
 
   const [popup, setPopup] = useState(false);
   const [discardPopup, setDiscardPopup] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [ingredientsState, setIngredientsState] = useState([
-    /*  { name: '',
-      quantity: 0,
-      unit: '',  }*/
-  ]);
+  const [ingredientsState, setIngredientsState] = useState([{
+    name: '',
+    quantity: 0,
+    unit: ''
+  }]);
   const [instructionState, setInstructionState] = useState([])
 
   const [newRecipe, setNewRecipe] = useState({
@@ -26,7 +25,7 @@ const AddRecipe = ({ countries }) => {
     country: "",
     description: "",
     image: "",
-    ingredients: [{ name: "", quantity: 0, unit: "" }],/* array of objects */
+    ingredients: [],/* array of objects */
     preparation_time: 0,
     cooking_time: 0,
     servings: 0,
@@ -77,9 +76,11 @@ const AddRecipe = ({ countries }) => {
     setInstructionState([...instructionState, formData]);
   }
 
-  const ingredientHandler = (formData) => {
-    console.log(ingredientsState);
-    setIngredientsState([...ingredientsState, formData])
+  const ingredientHandler = (e, index) => {
+    let ingredArray = [...ingredientsState];
+    ingredArray[index][e.target.name] = e.target.value;
+    setIngredientsState(ingredArray);
+
   };
 
   useEffect(() => {
@@ -128,8 +129,8 @@ const AddRecipe = ({ countries }) => {
         submitHandler={submitForm}
         resetHandler={discardCheck}
         onChangeHandler={handleFormData} {...newRecipe}
+        onBlurHandler={(e, index) => ingredientHandler(e, index)}
         instructionHandler={(e) => instructionHandler(e)}
-        ingredientHandler={(formData, index) => ingredientHandler(formData, index)}
       />
       {popup && success && <Popup closeHandler={closeHandler} />}
       {popup && !success && <FailPopup closeHandler={closeHandler} />}

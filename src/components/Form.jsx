@@ -1,15 +1,15 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+
 import './Form.css';
 
-const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, ingredientHandler }) => {
+const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, ingredientHandler, onBlurHandler }) => {
 
     const [ingNumber, setIngNumber] = useState([0]);
     const [insNumber, setInsNumber] = useState([0]);
-    const [currentIngRow, setCurrentIngRow] = useState({
+    const [newIngRow, setNewIngRow] = useState({
         name: '',
         quantity: 0,
         unit: '',
-
     });
 
     const more = useRef();
@@ -21,10 +21,9 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
 
     const instructionInput = useRef();
 
-    const ingredientEventHandler = (e, index) => {
-        setCurrentIngRow({ ...currentIngRow, [e.target.name]: e.target.value });
-        console.log(currentIngRow);
-        ingredientHandler(currentIngRow, index);
+    const ingredientBlurHandler = (e, index) => {
+        //setNewIngRow({ ...newIngRow, [e.target.name]: e.target.value });
+        ingredientHandler(e, index);
     }
 
     const instructionChangeHandler = () => {
@@ -40,6 +39,12 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
         }
         else {
             setIngNumber([...ingNumber, ingNumber.length]);
+            setNewIngRow({
+                name: '',
+                quantity: 0,
+                unit: '',
+
+            })
         }
     }
 
@@ -78,7 +83,8 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
                 <legend>Ingredients</legend>
 
                 {ingNumber.map((item, index) =>
-                    <fieldset className="flex" name="ingredients" key={index} onBlur={(e) => ingredientEventHandler(e, index)}>
+                    <fieldset className="flex" name="ingredients" key={index} onBlur={onBlurHandler}>
+                        <div><p className="indexP">{index + 1}</p></div>
                         <div>
                             <label htmlFor="name">Ingredient</label>
                             <input className="ingredient" type="text" name="name" id="name" ref={nameInput} />
