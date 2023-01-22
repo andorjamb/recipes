@@ -6,14 +6,17 @@ A Reactjs web application using json-server.
 
 ## Start up notes
 
-This site uses a JSON-server running on port 3000. 
-Before starting the application run this script:
+Install any dependencies first:
 
-```json-server --watch recipes.json --port 3000```
+```npm install``` 
+
+This site uses a JSON-server running on port 3000. 
+Before starting the application, start the server with the command:
+
+```npm run server```
 
 Starting the front-end:
 
-```npm install```
 ```npm start```
 
 ### Live site
