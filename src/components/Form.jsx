@@ -1,11 +1,16 @@
 import React, { useState, useRef } from 'react';
 import './Form.css';
 
-const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, ingredientEventHandler }) => {
+const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, ingredientHandler }) => {
 
     const [ingNumber, setIngNumber] = useState([0]);
     const [insNumber, setInsNumber] = useState([0]);
-    const [currentIngRow, setCurrentIngRow] = useState([]);
+    const [currentIngRow, setCurrentIngRow] = useState({
+        name: '',
+        quantity: 0,
+        unit: '',
+
+    });
 
     const more = useRef();
     const step = useRef();
@@ -15,22 +20,12 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
     const unitInput = useRef();
 
     const instructionInput = useRef();
-    /*
-        let postEventTarget = new EventTarget();
-    
-        postEventTarget.addEventListener('postMe', (e) => {
-            ingredientHandler(e.detail);
-        })
-    
-        let postEvent = new CustomEvent("postMe", { detail: currentIngRow }); */
 
-
-    /*   const ingredientEventHandler = (e) => {
-          setCurrentIngRow({ [e.target.name]: e.target.value });
-          console.log(currentIngRow);
-          ingredientHandler(currentIngRow);
-          //postEventTarget.dispatchEvent(postEvent);
-      } */
+    const ingredientEventHandler = (e, index) => {
+        setCurrentIngRow({ ...currentIngRow, [e.target.name]: e.target.value });
+        console.log(currentIngRow);
+        ingredientHandler(currentIngRow, index);
+    }
 
     const instructionChangeHandler = () => {
         let newIns = instructionInput.current.value;
@@ -82,8 +77,8 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
 
                 <legend>Ingredients</legend>
 
-                {ingNumber.map((number, index) =>
-                    <fieldset className="flex" name="ingredients" key={index} onBlur={ingredientEventHandler}>
+                {ingNumber.map((item, index) =>
+                    <fieldset className="flex" name="ingredients" key={index} onBlur={(e) => ingredientEventHandler(e, index)}>
                         <div>
                             <label htmlFor="name">Ingredient</label>
                             <input className="ingredient" type="text" name="name" id="name" ref={nameInput} />
@@ -124,12 +119,10 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
                     </div>)
                     )}
 
-
                 </div>
                 <div className='flex'>
                     <button name="step" ref={step} onClick={(e) => newInstruction(e)}>Add another step</button>
                 </div>
-
 
                 <div className='flex'>
                     <button type="submit" onClick={submitHandler}>Submit Recipe</button>

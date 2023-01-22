@@ -13,12 +13,12 @@ const AddRecipe = ({ countries }) => {
   const [popup, setPopup] = useState(false);
   const [discardPopup, setDiscardPopup] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [ingredientsState, setIngredientsState] = useState([]);
-  const [instructionState, setInstructionState] = useState([{
-    name: '',
-    quantity: 0,
-    unit: '',
-  }])
+  const [ingredientsState, setIngredientsState] = useState([
+    /*  { name: '',
+      quantity: 0,
+      unit: '',  }*/
+  ]);
+  const [instructionState, setInstructionState] = useState([])
 
   const [newRecipe, setNewRecipe] = useState({
     name: "",
@@ -76,22 +76,11 @@ const AddRecipe = ({ countries }) => {
   const instructionHandler = (formData) => {
     setInstructionState([...instructionState, formData]);
   }
-  /* 
-    const ingredientHandler = (formData) => {
-      setIngredientsState([...ingredientsState, formData])
-    }; */
 
-  const ingredientHandler = (e, i) => {
-    let object = newRecipe;
-    console.log(object["ingredients"]);
-    object["ingredients"].push({ [e.target.name]: e.target.value })
-    setNewRecipe(object);
-    console.log(object);
-    //postEventTarget.dispatchEvent(postEvent);
-
-
-  }
-
+  const ingredientHandler = (formData) => {
+    console.log(ingredientsState);
+    setIngredientsState([...ingredientsState, formData])
+  };
 
   useEffect(() => {
     setNewRecipe({ ...newRecipe, ingredients: ingredientsState });
@@ -103,7 +92,6 @@ const AddRecipe = ({ countries }) => {
     setNewRecipe({ ...newRecipe, instructions: instructionState });
   }, // eslint-disable-next-line 
     [instructionState]);
-
 
   /** Button Handlers */
 
@@ -140,8 +128,8 @@ const AddRecipe = ({ countries }) => {
         submitHandler={submitForm}
         resetHandler={discardCheck}
         onChangeHandler={handleFormData} {...newRecipe}
-        instructionHandler={instructionHandler}
-        ingredientEventHandler={(e, i) => ingredientHandler(e, i)}
+        instructionHandler={(e) => instructionHandler(e)}
+        ingredientHandler={(formData, index) => ingredientHandler(formData, index)}
       />
       {popup && success && <Popup closeHandler={closeHandler} />}
       {popup && !success && <FailPopup closeHandler={closeHandler} />}
