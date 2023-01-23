@@ -78,6 +78,7 @@ const AddRecipe = ({ countries }) => {
 
   const ingredientHandler = (e, index) => {
     let ingredArray = [...ingredientsState];
+    console.log(ingredArray);
     ingredArray[index][e.target.name] = e.target.value;
     setIngredientsState(ingredArray);
 
@@ -131,6 +132,8 @@ const AddRecipe = ({ countries }) => {
         onChangeHandler={handleFormData} {...newRecipe}
         onBlurHandler={(e, index) => ingredientHandler(e, index)}
         instructionHandler={(e) => instructionHandler(e)}
+        ingredientsState={ingredientsState}
+        setIngredientsState={setIngredientsState}
       />
       {popup && success && <Popup closeHandler={closeHandler} />}
       {popup && !success && <FailPopup closeHandler={closeHandler} />}

@@ -1,16 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 import './Form.css';
 
-const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, ingredientHandler, onBlurHandler }) => {
+const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, ingredientHandler, ingredientsState, setIngredientsState }) => {
 
     const [ingNumber, setIngNumber] = useState([0]);
     const [insNumber, setInsNumber] = useState([0]);
-    const [newIngRow, setNewIngRow] = useState({
-        name: '',
-        quantity: 0,
-        unit: '',
-    });
 
     const more = useRef();
     const step = useRef();
@@ -22,8 +17,11 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
     const instructionInput = useRef();
 
     const ingredientBlurHandler = (e, index) => {
-        //setNewIngRow({ ...newIngRow, [e.target.name]: e.target.value });
-        ingredientHandler(e, index);
+        console.log(index);
+        let ingreds = [...ingredientsState];
+        ingreds[index][e.target.name] = e.target.value;
+        setIngredientsState(ingreds);
+        console.log(ingreds);
     }
 
     const instructionChangeHandler = () => {
@@ -39,12 +37,13 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
         }
         else {
             setIngNumber([...ingNumber, ingNumber.length]);
-            setNewIngRow({
+            let newRow = {
                 name: '',
                 quantity: 0,
                 unit: '',
 
-            })
+            };
+            setIngredientsState([...ingredientsState, newRow])
         }
     }
 
@@ -82,8 +81,8 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
 
                 <legend>Ingredients</legend>
 
-                {ingNumber.map((item, index) =>
-                    <fieldset className="flex" name="ingredients" key={index} onBlur={onBlurHandler}>
+                {ingredientsState.map((item, index) =>
+                    <fieldset className="flex" name="ingredients" key={index} onBlur={(e) => ingredientBlurHandler(e, index)}>
                         <div><p className="indexP">{index + 1}</p></div>
                         <div>
                             <label htmlFor="name">Ingredient</label>
