@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 import './Form.css';
 
-const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, ingredientHandler, ingredientsState, setIngredientsState }) => {
+const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, ingredientsState, setIngredientsState }) => {
 
     const [ingNumber, setIngNumber] = useState([0]);
     const [insNumber, setInsNumber] = useState([0]);
@@ -17,11 +17,9 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
     const instructionInput = useRef();
 
     const ingredientBlurHandler = (e, index) => {
-        console.log(index);
         let ingreds = [...ingredientsState];
         ingreds[index][e.target.name] = e.target.value;
         setIngredientsState(ingreds);
-        console.log(ingreds);
     }
 
     const instructionChangeHandler = () => {
@@ -83,7 +81,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
 
                 {ingredientsState.map((item, index) =>
                     <fieldset className="flex" name="ingredients" key={index} onBlur={(e) => ingredientBlurHandler(e, index)}>
-                        <div><p className="indexP">{index + 1}</p></div>
+                        <div className="indexP"><p>{index + 1}</p></div>
                         <div>
                             <label htmlFor="name">Ingredient</label>
                             <input className="ingredient" type="text" name="name" id="name" ref={nameInput} />
