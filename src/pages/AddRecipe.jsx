@@ -7,14 +7,18 @@ import DiscardPopup from '../components/DiscardPopup';
 import FailPopup from '../components/FailPopup';
 import classes from './AddRecipe.module.css';
 
-
 const AddRecipe = ({ countries }) => {
 
   const [popup, setPopup] = useState(false);
   const [discardPopup, setDiscardPopup] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [ingredientsState, setIngredientsState] = useState([]);
-  const [directionsState, setDirectionsState] = useState([])
+  const [ingredientsState, setIngredientsState] = useState([{
+    name: '',
+    quantity: 0,
+    unit: ''
+  }]);
+  const [instructionState, setInstructionState] = useState([])
+
   const [newRecipe, setNewRecipe] = useState({
     name: "",
     author: "",
@@ -25,7 +29,7 @@ const AddRecipe = ({ countries }) => {
     preparation_time: 0,
     cooking_time: 0,
     servings: 0,
-    directions: [], /* array of strings */
+    instructions: [], /* array of strings */
   })
 
   function dataAdapter(obj) {
@@ -40,7 +44,7 @@ const AddRecipe = ({ countries }) => {
     e.preventDefault();
     let object = newRecipe;
 
-    /**form validator */
+    /** form validator */
     let recipeValues = Object.values(object);
     for (const i of recipeValues) {
       if (i === "") {
@@ -69,12 +73,16 @@ const AddRecipe = ({ countries }) => {
   }
 
   const instructionHandler = (formData) => {
-    setDirectionsState([...directionsState, formData]);
+    setInstructionState([...instructionState, formData]);
   }
 
-  const ingredientHandler = (formData) => {
-    setIngredientsState([...ingredientsState, formData]);
-  }
+  const ingredientHandler = (e, index) => {
+    let ingredArray = [...ingredientsState];
+    console.log(ingredArray);
+    ingredArray[index][e.target.name] = e.target.value;
+    setIngredientsState(ingredArray);
+
+  };
 
   useEffect(() => {
     setNewRecipe({ ...newRecipe, ingredients: ingredientsState });
@@ -83,10 +91,11 @@ const AddRecipe = ({ countries }) => {
     [ingredientsState]);
 
   useEffect(() => {
-    setNewRecipe({ ...newRecipe, directions: directionsState });
+    setNewRecipe({ ...newRecipe, instructions: instructionState });
   }, // eslint-disable-next-line 
-    [directionsState]);
+    [instructionState]);
 
+  /** Button Handlers */
 
   const closeHandler = () => {
     setPopup(false);
@@ -121,15 +130,16 @@ const AddRecipe = ({ countries }) => {
         submitHandler={submitForm}
         resetHandler={discardCheck}
         onChangeHandler={handleFormData} {...newRecipe}
-        instructionHandler={instructionHandler}
-        ingredientHandler={ingredientHandler}
+        onBlurHandler={(e, index) => ingredientHandler(e, index)}
+        instructionHandler={(e) => instructionHandler(e)}
         ingredientsState={ingredientsState}
-        directions={directionsState}
         setIngredientsState={setIngredientsState}
-        directionsState={setDirectionsState} />
+      />
       {popup && success && <Popup closeHandler={closeHandler} />}
       {popup && !success && <FailPopup closeHandler={closeHandler} />}
-      {discardPopup && <DiscardPopup yesHandler={(e) => discardChanges(e)} noHandler={(e) => keepChanges(e)} />}
+      {discardPopup && <DiscardPopup
+        yesHandler={(e) => discardChanges(e)}
+        noHandler={(e) => keepChanges(e)} />}
     </div>
   );
 };

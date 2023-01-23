@@ -35,9 +35,9 @@ const RecipeSingle = ({ recipeData }) => {
                 <table className={classes.ingredients}><tbody>
                     {singleRecipe[0].ingredients.map((ingredient, i) => { return <tr key={i}><td>{ingredient.quantity}</td><td>{ingredient.unit}</td><td>{ingredient.name}</td></tr> })}
                 </tbody></table>
-                <h3>Directions</h3>
+                <h3>Instructions</h3>
                 <ol className={classes.directions}>
-                    {singleRecipe[0].directions.map((direction, i) => { return <li key={i}>{direction}</li> })}
+                    {singleRecipe[0].instructions.map((instruction, i) => { return <li key={i}>{instruction}</li> })}
 
                 </ol>
             </div>
