@@ -4,7 +4,6 @@ import './Form.css';
 
 const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, ingredientsState, setIngredientsState }) => {
 
-    const [ingNumber, setIngNumber] = useState([0]);
     const [insNumber, setInsNumber] = useState([0]);
 
     const more = useRef();
@@ -34,12 +33,10 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
             return null;
         }
         else {
-            setIngNumber([...ingNumber, ingNumber.length]);
             let newRow = {
                 name: '',
                 quantity: 0,
                 unit: '',
-
             };
             setIngredientsState([...ingredientsState, newRow])
         }
@@ -51,7 +48,6 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
             return null;
         }
         else {
-
             setInsNumber([...insNumber, insNumber.length])
         }
     }

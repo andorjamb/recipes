@@ -78,7 +78,6 @@ const AddRecipe = ({ countries }) => {
 
   const ingredientHandler = (e, index) => {
     let ingredArray = [...ingredientsState];
-    console.log(ingredArray);
     ingredArray[index][e.target.name] = e.target.value;
     setIngredientsState(ingredArray);
 
