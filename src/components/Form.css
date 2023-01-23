@@ -142,13 +142,6 @@ input[type="number"] {
 
 }
 
-.indexP {
-    height: 40px;
-    text-align: center;
-    width: 50px;
-    margin: 1.5rem;
-}
-
 fieldset {
     border: none;
 }

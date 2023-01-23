@@ -17,7 +17,7 @@ const AddRecipe = ({ countries }) => {
     quantity: 0,
     unit: ''
   }]);
-  const [instructionState, setInstructionState] = useState([])
+  const [instructionState, setInstructionState] = useState([''])
 
   const [newRecipe, setNewRecipe] = useState({
     name: "",
@@ -72,17 +72,6 @@ const AddRecipe = ({ countries }) => {
     setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value });
   }
 
-  const instructionHandler = (formData) => {
-    setInstructionState([...instructionState, formData]);
-  }
-
-  const ingredientHandler = (e, index) => {
-    let ingredArray = [...ingredientsState];
-    ingredArray[index][e.target.name] = e.target.value;
-    setIngredientsState(ingredArray);
-
-  };
-
   useEffect(() => {
     setNewRecipe({ ...newRecipe, ingredients: ingredientsState });
   },
@@ -129,10 +118,10 @@ const AddRecipe = ({ countries }) => {
         submitHandler={submitForm}
         resetHandler={discardCheck}
         onChangeHandler={handleFormData} {...newRecipe}
-        onBlurHandler={(e, index) => ingredientHandler(e, index)}
-        instructionHandler={(e) => instructionHandler(e)}
         ingredientsState={ingredientsState}
         setIngredientsState={setIngredientsState}
+        instructionState={instructionState}
+        setInstructionState={setInstructionState}
       />
       {popup && success && <Popup closeHandler={closeHandler} />}
       {popup && !success && <FailPopup closeHandler={closeHandler} />}

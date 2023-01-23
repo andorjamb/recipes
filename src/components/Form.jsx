@@ -1,13 +1,7 @@
-import React, { useState, useRef } from 'react';
-
+import React, { useRef } from 'react';
 import './Form.css';
 
-const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instructionHandler, ingredientsState, setIngredientsState }) => {
-
-    const [insNumber, setInsNumber] = useState([0]);
-
-    const more = useRef();
-    const step = useRef();
+const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredientsState, setIngredientsState, instructionState, setInstructionState }) => {
 
     const nameInput = useRef();
     const quantityInput = useRef();
@@ -21,13 +15,14 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
         setIngredientsState(ingreds);
     }
 
-    const instructionChangeHandler = () => {
-        let newIns = instructionInput.current.value;
-        instructionHandler(newIns);
+    const instructionChangeHandler = (e, index) => {
+        let instructions = [...instructionState];
+        instructions[index] = e.target.value;
+        setInstructionState(instructions);
+
     }
 
-    const ingredientRow = (e) => {
-        e.preventDefault();
+    const ingredientRow = () => {
         if (nameInput.current.value === '' || quantityInput.current.value === '' || unitInput.current.value === '') {
             alert("Some fields are missing data");
             return null;
@@ -42,15 +37,16 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
         }
     }
 
-    const newInstruction = (e) => {
-        e.preventDefault();
+    const instructionRow = () => {
         if (instructionInput.current.value === undefined || instructionInput.current.value === '') {
             return null;
         }
+
         else {
-            setInsNumber([...insNumber, insNumber.length])
+            setInstructionState([...instructionState, '']);
         }
     }
+
 
     return (
         <div className="formDiv">
@@ -77,13 +73,13 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
 
                 {ingredientsState.map((item, index) =>
                     <fieldset className="flex" name="ingredients" key={index} onBlur={(e) => ingredientBlurHandler(e, index)}>
-                        <div className="indexP"><p>{index + 1}</p></div>
+
                         <div>
                             <label htmlFor="name">Ingredient</label>
                             <input className="ingredient" type="text" name="name" id="name" ref={nameInput} />
                         </div>
                         <div><label htmlFor="quantity">Quantity </label>
-                            <input type="number" name="quantity" id="quantity" ref={quantityInput} className="inputSmallarea" />
+                            <input type="number" name="quantity" id="quantity" min="0" ref={quantityInput} className="inputSmallarea" />
                         </div>
                         <div>
                             <label htmlFor="unit">Unit </label>
@@ -92,21 +88,21 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
 
                     </fieldset>)}
 
-                <div className='flex'><button type="button" name="more" ref={more} onClick={(e) => ingredientRow(e)}>Add more</button>
+                <div className='flex'><button type="button" name="more" onClick={ingredientRow}>Add more</button>
                 </div>
 
                 <section className='flex'>
                     <div>
                         <label htmlFor="preparation_time">Preparation time</label>
-                        <input type="number" placeholder="minutes" name="preparation_time" id="preparation_time" className="inputSmallarea" onChange={onChangeHandler} />
+                        <input type="number" placeholder="minutes" name="preparation_time" id="preparation_time" min="0" className="inputSmallarea" onChange={onChangeHandler} />
                     </div>
                     <div>
                         <label htmlFor="cooking_time">Cooking time </label>
-                        <input type="number" placeholder="minutes" name="cooking_time" id="cooking_time" className="inputSmallarea" onChange={onChangeHandler} />
+                        <input type="number" placeholder="minutes" name="cooking_time" id="cooking_time" min="0" className="inputSmallarea" onChange={onChangeHandler} />
                     </div>
                     <div>
                         <label htmlFor="servings">Servings</label>
-                        <input type="number" name="servings" id="servings" className="inputSmallarea" onChange={onChangeHandler}></input>
+                        <input type="number" name="servings" id="servings" min="0" className="inputSmallarea" onChange={onChangeHandler}></input>
                     </div>
                 </section>
 
@@ -114,13 +110,14 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, instruc
 
                     <label htmlFor="instructions" className="textareaLabel">Instructions</label>
 
-                    {insNumber.map((number, index) => (<div key={index} ><textarea className="instructionInput" id="instruction" name="directions" maxLength={300} onBlur={instructionChangeHandler} ref={instructionInput} />
+                    {instructionState.map((item, index) => (<div key={index}>
+                        <textarea className="instructionInput" id="instructions" name="instructions" maxLength={300} onBlur={(e) => instructionChangeHandler(e, index)} ref={instructionInput} />
                     </div>)
                     )}
 
                 </div>
                 <div className='squash'>
-                    <button name="step" ref={step} onClick={(e) => newInstruction(e)}>Add another step</button>
+                    <button name="step" type="button" onClick={instructionRow}>Add another step</button>
                 </div>
 
                 <div className='flex'>
