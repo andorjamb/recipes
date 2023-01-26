@@ -21,7 +21,7 @@ Starting the front-end:
 
 ### Live site
 
-(might be) viewable on [Netlify](https://tasteit-recipe-app.netlify.app)
+Live deploy viewable on [Netlify](https://tasteit-recipe-app.netlify.app)
 
 ## Screenshots from project:
 
