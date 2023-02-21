@@ -34,11 +34,6 @@ function App() {
 
   }, []);
 
-  useEffect(() => {
-
-  }, [error])
-
-
 
   return (
     <div className="App">
