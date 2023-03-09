@@ -1,9 +1,9 @@
 import Navbar from "../components/Navbar";
 import { render, screen } from '@testing-library/react';
 
-
-test('renders nav links', async()=>{
+test('renders list items', () => {
     render(<Navbar />);
-    const link = screen.getByText(/tasteit/i);
-    expect(link).toBeInTheDocument();
+    const list = screen.getAllByRole('listitem');
+    expect(list).not.toHaveLength(0)
+
 })
