@@ -1,10 +1,10 @@
 import Home from "../pages/Home";
-import { render, screen, userEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 
-test('check element exists', async () => {
+test('check element exists', () => {
     render(<Home />);
-    const element = await screen.findByText('Browse Recipes');
+    const element = screen.getByText('Browse Recipes');
     expect(element).toBeTruthy();
 });
 

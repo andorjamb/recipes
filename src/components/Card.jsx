@@ -8,7 +8,7 @@ const Card = ({ recipeImage, recipeName, recipeCountry, recipeId }) => {
     return (
         <div className={classes.card} key={recipeName} >
 
-            <div><img src={recipeImage} alt={recipeName} /* data-testid={`recipeImage${recipeId}`} */ />
+            <div><img src={recipeImage} alt={recipeName} />
                 <Flag country={recipeCountry} />
             </div>
             <div><h4>{recipeName}</h4>  </div>

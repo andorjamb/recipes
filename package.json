@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "axios": "^1.2.2",
+    "jest": "^27.5.1",
     "jest-preview": "^0.3.1",
     "json-loader": "^0.5.7",
     "json-server": "^0.17.1",

@@ -1,9 +1,11 @@
 import Navbar from "../components/Navbar";
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 
+/* const hover = createEvent.hover({ button: 2 }) */
 test('renders list items', () => {
     render(<Navbar />);
-    const list = screen.getAllByRole('listitem');
-    expect(list).not.toHaveLength(0)
-
+    const navLink = screen.getByText(/home/i);
+    let style = window.getComputedStyle(navLink);
+    fireEvent.hover(navLink);
+    expect(style.color).toBe('black');
 })

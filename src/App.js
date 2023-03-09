@@ -41,7 +41,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path='/recipes' element={<Recipes countries={countries} recipeData={recipeData} />}></Route>
+            <Route path='/recipes' element={<Recipes recipeData={recipeData} />}></Route>
             <Route path='/recipes/:recipesingle' element={<RecipeSingle recipeData={recipeData} />}></Route>
             <Route path='/addrecipe' element={<AddRecipe countries={countries} />}></Route>
             <Route path='*' element={<NotFound />}></Route>
