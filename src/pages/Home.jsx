@@ -7,7 +7,7 @@ const Home = () => {
 
     return (
         <div className={classes.home}>
-            <video autoPlay className={classes.video}><source src={cooking} type="video/mp4" /></video>
+            <video data-testid="video" autoPlay className={classes.video}><source src={cooking} type="video/mp4" /></video>
             <div className={classes.title}><h1 className={classes.h1}>TasteIT</h1></div>
             <div className={classes.menu}>
                 <div className={classes.glassCard}>

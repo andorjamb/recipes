@@ -22,7 +22,7 @@ const RecipeSingle = ({ recipeData }) => {
     else {
         return (
             <div className={classes.recipeSingle}>
-                <h2>{singleRecipe[0].name}</h2>
+                <h2 data-testid="recipeTitle">{singleRecipe[0].name}</h2>
                 <p className={classes.slim}>By {singleRecipe[0].author}</p>
                 <p className={classes.slim}>Origin: {singleRecipe[0].country} </p>
                 <div className={classes.description}><h3>Description</h3>

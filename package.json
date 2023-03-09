@@ -14,9 +14,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject",
-    "server": "json-server --watch recipes.json --port 3000"
+    "server": "json-server --watch recipes.json --port 3000",
+    "jest-preview": "jest-preview"
   },
   "eslintConfig": {
     "extends": [
@@ -38,8 +39,10 @@
   },
   "devDependencies": {
     "axios": "^1.2.2",
+    "jest-preview": "^0.3.1",
     "json-loader": "^0.5.7",
     "json-server": "^0.17.1",
-    "react-router-dom": "^6.6.1"
+    "react-router-dom": "^6.6.1",
+    "react-test-renderer": "^18.2.0"
   }
 }
