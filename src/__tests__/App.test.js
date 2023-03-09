@@ -1,12 +1,8 @@
-import { cleanup } from '@testing-library/react';
-import renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer'
 import App from '../App';
-
-afterEach(() => {
-    cleanup();
-})
+/* import { render, screen } from '@testing-library/react'; */
 
 test('matches snapshot', () => {
-    const recipesTree = renderer.create(<App />).toJSON();
-    expect(recipesTree).toMatchSnapshot();
-})
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapShot();
+});
