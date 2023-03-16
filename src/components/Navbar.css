@@ -63,7 +63,7 @@ nav .menuIcon:active {
 }
 
 .nav a:hover {
-    color: var(--black);
+    color: black;
 }
 
 @media screen and (max-width:600px) {

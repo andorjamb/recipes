@@ -1,11 +1,14 @@
 import Navbar from "../components/Navbar";
+import { BrowserRouter } from 'react-router-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 
-/* const hover = createEvent.hover({ button: 2 }) */
-test('renders list items', () => {
-    render(<Navbar />);
-    const navLink = screen.getByText(/home/i);
-    let style = window.getComputedStyle(navLink);
-    fireEvent.hover(navLink);
-    expect(style.color).toBe('black');
+test('navlink changes color on hover', () => {
+    render(<BrowserRouter><Navbar /></BrowserRouter>);
+    const navLinks = screen.getAllByRole('link');
+    navLinks.forEach((link) => {
+        fireEvent.mouseEnter(link);
+        expect(navLinks).toHaveStyle('color: black');
+    }
+    )
 })
+

@@ -1,7 +1,8 @@
-import Recipes from '../pages/Recipes';
+import RecipeSingle from '../pages/RecipeSingle';
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 
-const recipeData =
+const singleRecipe =
     [
         {
             "name": "Fried Fish",
@@ -38,9 +39,17 @@ const recipeData =
         }
     ]
 
-test('renders list items', () => {
-    render(<Recipes recipeData={recipeData} />);
+test('renders list items', async () => {
+    render(<BrowserRouter><RecipeSingle recipeData={JSON.parse(singleRecipe)} /></BrowserRouter>);
     const list = screen.getAllByRole('listitem');
     expect(list).not.toHaveLength(0)
+
+})
+
+test('checks that title is rendering', async () => {
+    (<BrowserRouter><RecipeSingle recipeData={singleRecipe} /></BrowserRouter>);
+    const title = await screen.getByText(/Fried\sFish/i)
+        .then(expect(title).toBeTruthy);
+
 
 })

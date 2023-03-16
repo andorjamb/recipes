@@ -29,6 +29,12 @@ Live deploy viewable on [Netlify](https://tasteit-recipe-app.netlify.app)
 ![screenshot](https://github.com/andorjamb/recipes/blob/master/screenshot_recipes_recipes.png)
 ![screenshot](https://github.com/andorjamb/recipes/blob/master/screenshot_recipes_addrecipe.png)
 
+## Testing
+
+```npm test```
+
+Run tests with Jest using the React Testing Library
+
 #### Media source attributions: 
 Stirfry Video: pixabay (user billialan9216-24764816)
 
