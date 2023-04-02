@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -61,6 +62,7 @@ const AddRecipe = ({ countries }) => {
       .catch((err) => {
         setSuccess(false);
         setPopup(true);
+        alert(err);
       });
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;

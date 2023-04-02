@@ -14,8 +14,6 @@ function App() {
 
   const [countries, setCountries] = useState([]);
   const [recipeData, setRecipeData] = useState([]);
-  const [error, setError] = useState(false);
-
 
   async function getCountryData() {
     await axios.get(' https://restcountries.com/v2/all?fields=name,flag')
@@ -25,7 +23,7 @@ function App() {
   async function getRecipeData() {
     await axios.get('http://localhost:3000/recipes')
       .then(res => { setRecipeData(res.data) })
-      .catch((err) => setError(true));
+      .catch((error) => alert(error));
   }
   useEffect(() => {
 
@@ -41,7 +39,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path='/recipes' element={<Recipes recipeData={recipeData} />}></Route>
+            <Route path='/recipes' element={<Recipes RecipeSingle={recipeData} />}></Route>
             <Route path='/recipes/:recipesingle' element={<RecipeSingle recipeData={recipeData} />}></Route>
             <Route path='/addrecipe' element={<AddRecipe countries={countries} />}></Route>
             <Route path='*' element={<NotFound />}></Route>
