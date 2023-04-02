@@ -58,7 +58,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
                 <input type="text" name="author" id="author" onChange={onChangeHandler} />
                 <label htmlFor="country">Country &#40;Select from list&#41;</label>
                 <select name="country" onChange={onChangeHandler}>  <option value="choice" defaultValue={'Select a country'}>Select a country</option>
-                    {countries.map((country) => {
+                    {countries?.map((country) => {
                         return <option key={country.name} name={country.name} value={country.name}>{country.name}</option>
                     })}
                 </select>
@@ -72,7 +72,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
 
                 <legend>Ingredients</legend>
 
-                {ingredientsState.map((item, index) =>
+                {ingredientsState?.map((item, index) =>
                     <fieldset className="flex" name="ingredients" key={index} onBlur={(e) => ingredientBlurHandler(e, index)}>
 
                         <div>
@@ -111,7 +111,7 @@ const Form = ({ countries, submitHandler, resetHandler, onChangeHandler, ingredi
 
                     <label htmlFor="instructions" className="textareaLabel">Instructions</label>
 
-                    {instructionState.map((item, index) => (<div key={index}>
+                    {instructionState?.map((item, index) => (<div key={index}>
                         <textarea className="instructionInput" id="instructions" name="instructions" maxLength={300} onBlur={(e) => instructionChangeHandler(e, index)} ref={instructionInput} />
                     </div>)
                     )}
